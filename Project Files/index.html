@@ -8,12 +8,16 @@
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="./style/bootstrap/bootstrap.min.css">
-    <script src="./js/bootstrap/bootstrap.min.js"></script>
+
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/53e5e12b26.js" crossorigin="anonymous"></script>
     <!-- custom -->
     <link rel="stylesheet" href="./style/home.css">
+    <!-- chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <!-- lottie-player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 </head>
 
@@ -39,6 +43,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Hospital Finder</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+
             </ul>
 
 
@@ -191,8 +199,53 @@
     </div>
     <!-- banner -->
 
-
+    <!-- carousel  -->
+    <!-- chart js  -->
     <div class="bg-light">
+        <div class="container pt-5 pb-4 ">
+            <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container">
+                            <canvas id="patientChart" width="300" height="200"></canvas>
+                        </div>
+
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container">
+                            <canvas id="recoveredChart" width="300" height="200"></canvas>
+                        </div>
+
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container">
+                            <canvas id="deathChart" width="300" height="200"></canvas>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a> -->
+            </div>
+            <!-- chart js  -->
+            <!-- carousel  -->
+        </div>
+    </div>
+
+
+
+    <div class="bg-light" id="features">
         <div class="container pt-5 px-5 pt-5 pb-3 z-depth-1">
 
             <!--Section: Content-->
@@ -211,8 +264,7 @@
                 <div class="row text-center d-flex justify-content-center">
                     <div class="col-lg-4 col-md-12 mb-4">
                         <div class="view card-img-100 mx-auto mb-4">
-                            <script
-                                src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
                             <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_omnDaN.json"
                                 background="transparent" speed="1" style="width: 100%; height: 350px;" loop autoplay>
                             </lottie-player>
@@ -225,8 +277,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="view card-img-100 mx-auto mb-4">
-                            <script
-                                src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
                             <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_YO8gSl.json"
                                 background="transparent" speed="1" style="width: 100%; height: 350px;" loop autoplay>
                             </lottie-player>
@@ -239,8 +290,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="view card-img-100 mx-auto mb-4">
-                            <script
-                                src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
                             <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_TAdvcC.json"
                                 background="transparent" speed="1" style="width: 100%; height: 350px;" loop autoplay>
                             </lottie-player>
@@ -260,6 +310,165 @@
         </div>
     </div>
 
+    <div class="bg-light">
+
+
+        <div class="container bg-light py-5 p-5 z-depth-1">
+
+
+            <!--Section: Content-->
+            <section class=" text-center dark-grey-text">
+
+
+                <!-- Section heading -->
+                <h3 class="font-weight-bold text-center dark-grey-text pb-2">Executive Team</h3>
+                <hr class="w-header my-4">
+                <!-- Section description -->
+                <p class="text-center text-muted w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Saepe possimus nostrum nulla iure, provident ullam maxime nemo doloribus dolores
+                    cupiditate porro reprehenderit excepturi quidem commodi quasi dolorum fuga voluptates ipsum.</p>
+
+                <!-- Grid row -->
+                <div class="row">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mb-4">
+
+                        <div class="view z-depth-1 mb-4">
+                            <img src="./img/rafin.jpg" class="img-fluid mx-auto" alt="smaple image">
+                        </div>
+                        <h6 class="font-weight-bold">Rafin Gazi</h6>
+                        <small class="text-muted">Resource Manager</small>
+                        <ul class="list-unstyled d-flex justify-content-center mt-3 mb-0 text-muted">
+                            <li><i class="fab fa-twitter mx-2"></i></li>
+                            <li><i class="fab fa-facebook-f mx-2"></i></li>
+                            <li><i class="fab fa-instagram mx-2"></i></li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mb-4">
+
+                        <div class="view z-depth-1 mb-4">
+                            <img src="./img/imran.jpg" class="img-fluid mx-auto" alt="smaple image">
+                        </div>
+                        <h6 class="font-weight-bold">MD Al Imran Sefat</h6>
+                        <small class="text-muted">Lead Developer</small>
+                        <ul class="list-unstyled d-flex justify-content-center mt-3 mb-0 text-muted">
+                            <li><i class="fab fa-twitter mx-2"></i></li>
+                            <li><i class="fab fa-facebook-f mx-2"></i></li>
+                            <li><i class="fab fa-instagram mx-2"></i></li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mb-4">
+
+                        <div class="view z-depth-1 mb-4">
+                            <img src="./img/rafsan.jpg" class="img-fluid mx-auto" alt="smaple image">
+                        </div>
+                        <h6 class="font-weight-bold">Rafsan Al Mamun</h6>
+                        <small class="text-muted">Project Manager</small>
+                        <ul class="list-unstyled d-flex justify-content-center mt-3 mb-0 text-muted">
+                            <li><i class="fab fa-twitter mx-2"></i></li>
+                            <li><i class="fab fa-facebook-f mx-2"></i></li>
+                            <li><i class="fab fa-instagram mx-2"></i></li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </section>
+            <!--Section: Content-->
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small bg-info darken-3">
+
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-12 py-5">
+                    <div class=" text-center">
+
+                        <!-- Facebook -->
+                        <a class="fb-ic">
+                            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!-- Twitter -->
+                        <a class="tw-ic">
+                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!-- Google +-->
+                        <a class="gplus-ic">
+                            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!--Linkedin -->
+                        <a class="li-ic">
+                            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic">
+                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!--Pinterest-->
+                        <a class="pin-ic">
+                            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row-->
+
+        </div>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center text-warning py-3">©2020 Copyright:
+            Elven Squared Team
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+    <div class="bg-dark py-5">
+
+        <!--Section: Content-->
+        <section class=" px-5 px-md-5 py-5 text-center text-light bg-dark z-depth-1 rounded">
+
+            <h3 class="">Made with <i class="fas fa-heart red-text mx-1"></i> by Eleven Squared Team</h3>
+
+        </section>
+        <!--Section: Content-->
+
+
+    </div>
 
 
 
@@ -280,6 +489,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script src="./js/Info/info.js"></script>
+    <script src="./js/bar/main.js"></script>
 </body>
 
 </html>

@@ -4,6 +4,9 @@ header,
 #intro{
     height: 100%;
 }
+html{
+    scroll-behavior: smooth;
+}
 
 #intro{
     background: url("../img/bg.png") no-repeat center center fixed;
