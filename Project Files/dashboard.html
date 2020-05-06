@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="./style/bootstrap/bootstrap.min.css">
+  <script src="./js/bootstrap/bootstrap.min.js"></script>
+
+</head>
+
+<body class="bg-light">
+
+
+  <!--header area start-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-3 pb-3">
+
+    <!-- left side -->
+    <a class="navbar-brand" href="#">Care2U</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Status</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Donors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sample Button</a>
+        </li>
+      </ul>
+
+
+      <!-- right side -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"><i class="fas fa-sign-in-alt text-light" style="margin-right: 10px;"></i>Login
+            <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sign Up</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+  <!--header area end-->
+
+
+
+
+  <div class="container">
+    <div class="display-4 mt-5 text-center">Availability and requirements of Personal Protection Equipment (PPE) and
+      staffs</div>
+  </div>
+
+
+  <div class="container">
+
+
+    <div class="ml-5 mr-5 mt-5">
+
+      <div class="row">
+        <div class="col-lg mb-5" data-aos="fade-up ">
+          <div class="card ">
+
+            <div class="card-body ">
+              <h5 class="card-title mb-4 font-weight-bold">Gloves*</h5>
+            </div>
+            <!-- card-body -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-success font-weight-bold">Available : 250</li>
+              <li class="list-group-item text-success font-weight-bold">
+                <div class="list-group list-group-flush">
+                  <input type="number" class="form-control" placeholder="Available now"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                  <button class="btn btn-outline-primary text-center" type="button" id="button-addon2">Update</button>
+                </div>
+              </li>
+
+              <li class="list-group-item text-danger font-weight-bold">Requested : 200</li>
+              <li class="list-group-item">
+                <div class="list-group list-group-flush">
+                  <input type="number" class="form-control" placeholder="how many?" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                  <button class="btn btn-outline-primary text-center" type="button" id="button-addon2">Request</button>
+                </div>
+              </li>
+            </ul>
+
+
+          </div>
+          <!-- card -->
+
+        </div>
+        <!-- col -->
+
+        <div class="col-lg mb-5" data-aos="fade-up ">
+          <div class="card ">
+
+            <div class="card-body ">
+              <h5 class="card-title mb-4 font-weight-bold">Isolation Gowns</h5>
+
+            </div>
+
+            <!-- card-body -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-success font-weight-bold">Available : 75</li>
+              <li class="list-group-item text-success font-weight-bold">
+                <div class="list-group list-group-flush">
+                  <input type="number" class="form-control" placeholder="Available now"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                  <button class="btn btn-outline-primary text-center" type="button" id="button-addon2">Update</button>
+                </div>
+              </li>
+              <li class="list-group-item text-danger font-weight-bold">Requested : 50</li>
+              <li class="list-group-item">
+                <div class="list-group list-group-flush">
+                  <input type="number" class="form-control" placeholder="how many?" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                  <button class="btn btn-outline-primary text-center" type="button" id="button-addon2">Request</button>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+          <!-- card -->
+
+        </div>
+        <!-- col -->
+
+        <div class="col-lg mb-5" data-aos="fade-up ">
+          <div class="card ">
+
+            <div class="card-body ">
+              <h5 class="card-title mb-4 font-weight-bold">Masks</h5>
+
+            </div>
+            <!-- card-body -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-success font-weight-bold">Available : 250</li>
+              <li class="list-group-item text-success font-weight-bold">
+                <div class="list-group list-group-flush">
+                  <input type="number" class="form-control" placeholder="Available now"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                  <button class="btn btn-outline-primary text-center" type="button" id="button-addon2">Update</button>
+                </div>
+              </li>
+              <li class="list-group-item text-danger font-weight-bold">Requested : 150</li>
+              <li class="list-group-item">
+                <div class="list-group list-group-flush">
+                  <input type="number" class="form-control" placeholder="how many?" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                  <button class="btn btn-outline-primary text-center" type="button" id="button-addon2">Request</button>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+          <!-- card -->
+
+        </div>
+        <!-- col -->
+
+        <div class="col-lg mb-5" data-aos="fade-up ">
+          <div class="card ">
+
+            <div class="card-body ">
+              <h5 class="card-title mb-4 font-weight-bold">Ventilators*</h5>
+
+            </div>
+            <!-- card-body -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-success font-weight-bold">Available : 20</li>
+              <li class="list-group-item text-success font-weight-bold">
+                <div class="list-group list-group-flush">
+                  <input type="number" class="form-control" placeholder="Available now"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                  <button class="btn btn-outline-primary text-center" type="button" id="button-addon2">Update</button>
+                </div>
+              </li>
+              <li class="list-group-item text-danger font-weight-bold">Requested : 15</li>
+              <li class="list-group-item">
+                <div class="list-group list-group-flush">
+                  <input type="number" class="form-control" placeholder="how many?" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                  <button class="btn btn-outline-primary text-center" type="button" id="button-addon2">Request</button>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+          <!-- card -->
+
+        </div>
+        <!-- col -->
+      </div>
+      <div class="row">
+        <!-- col -->
+
+        <div class="col-lg mb-5" data-aos="fade-up ">
+          <div class="card ">
+
+            <div class="card-body ">
+              <h5 class="card-title mb-4 ">Staffs*</h5>
+
+            </div>
+            <!-- card-body -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-success font-weight-bold">Available : 70</li>
+              <li class="list-group-item text-success font-weight-bold">
+                <div class="list-group list-group-flush">
+                  <input type="number" class="form-control" placeholder="Available now"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                  <button class="btn btn-outline-primary text-center" type="button" id="button-addon2">Update</button>
+                </div>
+              </li>
+              <li class="list-group-item text-danger font-weight-bold">Requested : 15</li>
+              <li class="list-group-item">
+                <div class="list-group list-group-flush">
+                  <input type="number" class="form-control" placeholder="how many?" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                  <button class="btn btn-outline-primary text-center" type="button" id="button-addon2">Request</button>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+          <!-- card -->
+
+        </div>
+        <!-- col -->
+      </div>
+    </div>
+  </div>
+
+
+
+  </div>
+
+  </div>
+
+  </div>
+
+
+
+
+  <!-- bootstrap jquery and popper min js -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="./js/Info/info.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---->
