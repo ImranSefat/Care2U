@@ -12,6 +12,8 @@
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/53e5e12b26.js" crossorigin="anonymous"></script>
+    <!-- custom -->
+    <link rel="stylesheet" href="./style/home.css">
 
 </head>
 
@@ -31,13 +33,11 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Status</a>
+                    <a class="nav-link" href="dashboard.html">Status</a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Donors</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sample Button</a>
+                    <a class="nav-link" href="#">Hospital Finder</a>
                 </li>
             </ul>
 
@@ -60,113 +60,139 @@
     <!-- navbar -->
 
 
+    <!-- banner -->
+    <div id="intro" class="bg-dark">
+        <div class="content">
+            <div class="display-1
+            text-center text-white">Care2U</div> <br>
+            <div class="display-3  text-center text-white">“Give, but give until it hurts.”
+                ― Mother Teresa
+            </div>
+            <div class="display-4  text-center text-white mt-5">Find the Hospitals that are in need of your help
+            </div>
+            <button class="btn btn-success mt-5">Find Now</button>
 
 
+        </div>
+    </div>
+    <!-- banner -->
 
-    <!-- info section -->
-    <div class="bg-light">
-        <div class="container bg-light">
-            <div class="display-4 pt-4 pb-4 text-center mb-5">Latest Coronavirus Update</div>
-
-            <!-- row -->
-            <div class="card-deck mb-4">
-                <!-- column -->
-
-                <div class="card bg-dark" style="height: 150px">
-                    <div class="card-body">
-                        <h5 class="card-title text-center text-light">Affected</h5>
-                        <h5 class="card-subtitle font-weight-bold pb-2 mt-5 text-primary mt-1 text-center" id="cases">
-                            {{updateInfo.cases}}</h5>
-                    </div>
-                </div>
-                <!-- column -->
-
-                <!-- column -->
-                <div class="card">
-                    <div class="card-body" style="height: 150px">
-                        <h5 class="card-title text-center">Today Case</h5>
-                        <h5 class="card-subtitle pb-2 mt-5 text-danger font-weight-bold text-center" id="todayCases">
-                            {{updateInfo.todayCases}}</h5>
-                    </div>
-                </div>
-                <!-- column -->
-                <!-- column -->
-                <div class="card bg-dark" style="height: 150px">
-                    <div class="card-body">
-                        <h5 class="card-title text-center text-light">Recovered</h5>
-                        <h5 class="card-subtitle pb-2 font-weight-bold mt-5 text-success text-center"
-                            id="recoveredCases">
-                            {{updateInfo.recovered}}</h5>
-                    </div>
-                </div>
-                <!-- column -->
-
-                <!-- column -->
-                <div class="card" style="height: 150px">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Total Death</h5>
-                        <h5 class="card-subtitle pb-2 font-weight-bold mt-5 text-danger text-center" id="deathCases">
-                            {{updateInfo.deaths}}</h5>
-                    </div>
-                </div>
-                <!-- column -->
+    <!-- banner -->
+    <div id="intro2" class="bg-dark ">
+        <div class="content2">
+            <!-- <div class="container bg-light"> -->
+            <div class="container">
+                <div class="display-4 pt-4 pb-4 text-center mb-5 text-light">Latest Coronavirus Update</div>
 
                 <!-- row -->
+                <div class="card-deck mb-4">
+                    <!-- column -->
+
+                    <div class="card bg-dark" style="height: 150px">
+                        <div class="card-body">
+                            <h5 class="card-title text-center text-light">Affected</h5>
+                            <h5 class="card-subtitle font-weight-bold pb-2 mt-5 text-primary mt-1 text-center"
+                                id="cases">
+                                {{updateInfo.cases}}</h5>
+                        </div>
+                    </div>
+                    <!-- column -->
+
+                    <!-- column -->
+                    <div class="card">
+                        <div class="card-body" style="height: 150px">
+                            <h5 class="card-title text-center">Today Case</h5>
+                            <h5 class="card-subtitle pb-2 mt-5 text-danger font-weight-bold text-center"
+                                id="todayCases">
+                                {{updateInfo.todayCases}}</h5>
+                        </div>
+                    </div>
+                    <!-- column -->
+                    <!-- column -->
+                    <div class="card bg-dark" style="height: 150px">
+                        <div class="card-body">
+                            <h5 class="card-title text-center text-light">Recovered</h5>
+                            <h5 class="card-subtitle pb-2 font-weight-bold mt-5 text-success text-center"
+                                id="recoveredCases">
+                                {{updateInfo.recovered}}</h5>
+                        </div>
+                    </div>
+                    <!-- column -->
+
+                    <!-- column -->
+                    <div class="card" style="height: 150px">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Total Death</h5>
+                            <h5 class="card-subtitle pb-2 font-weight-bold mt-5 text-danger text-center"
+                                id="deathCases">
+                                {{updateInfo.deaths}}</h5>
+                        </div>
+                    </div>
+                    <!-- column -->
+
+                    <!-- row -->
+                </div>
+                <!-- Second Row  -->
+                <br />
+
+                <!-- row -->
+                <div class="card-deck mb-4">
+                    <!-- column -->
+                    <div class="card bg-dark" style="height: 150px">
+                        <div class="card-body">
+                            <h5 class="card-title text-center text-light">Active Case</h5>
+                            <h5 class="card-subtitle pb-2 mt-5 mt-1 text-danger font-weight-bold text-center"
+                                id="activeCases">
+                                {{updateInfo.active}}</h5>
+                        </div>
+                    </div>
+                    <!-- column -->
+
+                    <!-- column -->
+                    <div class="card" style="height: 150px">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Total Tests</h5>
+                            <h5 class="card-subtitle pb-2 mt-5 text-success font-weight-bold text-center"
+                                id="testCases">
+                                {{updateInfo.tests}}</h5>
+                        </div>
+                    </div>
+                    <!-- column -->
+                    <!-- column -->
+                    <div class="card bg-dark" style="height: 150px">
+                        <div class="card-body">
+                            <h5 class="card-title text-center text-light">Tests per 1M</h5>
+                            <h5 class="card-subtitle pb-2 mt-5 text-success font-weight-bold text-center"
+                                id="testPerMillion">
+                                {{updateInfo.testsPerOneMillion}}</h5>
+                        </div>
+                    </div>
+                    <!-- column -->
+
+                    <!-- column -->
+                    <div class="card" style="height: 150px">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Death Today</h5>
+                            <h5 class="card-subtitle pb-2 mt-5 text-danger font-weight-bold text-center"
+                                id="todayDeathCases">
+                                {{updateInfo.todayDeaths}}</h5>
+                        </div>
+                    </div>
+                    <!-- column -->
+                </div>
+                <!-- row -->
+
+                <p class=" pb-3 text-center text-light" id="lastUpdate">Last Updated on : </p>
             </div>
-            <!-- Second Row  -->
-            <br />
 
-            <!-- row -->
-            <div class="card-deck mb-4">
-                <!-- column -->
-                <div class="card" style="height: 150px">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Active Case</h5>
-                        <h5 class="card-subtitle pb-2 mt-5 mt-1 text-danger font-weight-bold text-center"
-                            id="activeCases">
-                            {{updateInfo.active}}</h5>
-                    </div>
-                </div>
-                <!-- column -->
 
-                <!-- column -->
-                <div class="card" style="height: 150px">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Total Tests</h5>
-                        <h5 class="card-subtitle pb-2 mt-5 text-success font-weight-bold text-center" id="testCases">
-                            {{updateInfo.tests}}</h5>
-                    </div>
-                </div>
-                <!-- column -->
-                <!-- column -->
-                <div class="card" style="height: 150px">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Tests per 1M</h5>
-                        <h5 class="card-subtitle pb-2 mt-5 text-success font-weight-bold text-center"
-                            id="testPerMillion">
-                            {{updateInfo.testsPerOneMillion}}</h5>
-                    </div>
-                </div>
-                <!-- column -->
-
-                <!-- column -->
-                <div class="card" style="height: 150px">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Death Today</h5>
-                        <h5 class="card-subtitle pb-2 mt-5 text-danger font-weight-bold text-center"
-                            id="todayDeathCases">
-                            {{updateInfo.todayDeaths}}</h5>
-                    </div>
-                </div>
-                <!-- column -->
-            </div>
-            <!-- row -->
-
-            <p class="text-muted pb-3 text-center" id="lastUpdate">Last Updated on : </p>
         </div>
-
     </div>
-    <!-- info section -->
+    <!-- banner -->
+
+
+
+
 
 
 
