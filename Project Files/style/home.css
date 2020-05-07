@@ -21,13 +21,15 @@ html{
 
     /* grid-auto-rows: (300px); */
     
-
+    /* grid-template-areas updated  */
     grid-template-areas: 
 
     ". . ."
     ". a ."
     ". . ."
     ;
+   
+
 }
 
 #intro2{
@@ -47,8 +49,7 @@ html{
     grid-template-areas: 
     ". . . "
     ". a ."
-    /* "a a a"
-    ". . ." */
+    ". . ."
     ;
 }
 
