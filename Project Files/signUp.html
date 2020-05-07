@@ -7,11 +7,13 @@
     <title>Sign Up</title>
     <!-- bootstrap -->
     <link rel="stylesheet" href="./style/bootstrap/bootstrap.min.css">
-    <script src="./js/bootstrap/bootstrap.min.js"></script>
+
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/53e5e12b26.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style/signUp.css">
+
+
 
 
 </head>
@@ -85,8 +87,7 @@
 
                 <div class="col-md-6">
                     <div class="pt-5 pb-5" id="lotti">
-                        <script
-                            src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
                         <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_wdXBRc.json"
                             background="transparent" speed="1" style="width: 100%; height: 400px;" loop autoplay>
                         </lottie-player>
@@ -96,74 +97,112 @@
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputName4" class="text-light">Name</label>
-                                <input type="text" placeholder="Full Name" class="form-control" id="inputName4">
+                                <label for="inputNameRcpt" class="text-light">Name</label>
+                                <input type="text" placeholder="Full Name" class="form-control" id="inputNameRcpt">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="inputPhoneNumber" class="text-light">Phone Number</label>
-                                <input type="text" maxlength="11" class="form-control" id="inputPhoneNumber"
+                                <label for="inputPhoneNumberRcpt" class="text-light">Phone Number</label>
+                                <input type="text" maxlength="11" class="form-control" id="inputPhoneNumberRcpt"
                                     placeholder="without +88">
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="col-6">
-                                <label for="inputPassword4" class="text-light">Password</label>
-                                <input type="password" placeholder="Minimum 8 digit" class="form-control"
-                                    id="inputPassword4">
-                            </div>
-                            <div class="col-6">
-                                <label for="inputPassword4" class="text-light">Confirm Password</label>
-                                <input type="password" class="form-control" placeholder="Retype" id="inputPassword4">
-                            </div>
-
-                        </div>
-                        <div class="form-group mt-3">
-                            <label for="inputEmail4" class="text-light">Email</label>
+                        <div class="form-group ">
+                            <label for="inputEmailRcpt" class="text-light">Email</label>
                             <input type="email" placeholder="Personal or work email address" class="form-control"
-                                id="inputEmail4">
+                                id="inputEmailRcpt">
+                        </div>
+                        <div class="form-row">
+                            <div class="col-6">
+                                <label for="inputPasswordRcpt" class="text-light">Password</label>
+                                <input type="password" placeholder="Minimum 8 digit" class="form-control"
+                                    id="inputPasswordRcpt">
+                            </div>
+                            <div class="col-6">
+                                <label for="inputPasswordConfirmRcpt4" class="text-light">Confirm Password</label>
+                                <input type="password" class="form-control" placeholder="Retype"
+                                    id="inputPasswordConfirmRcpt4">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputRegNumberRcpt" class="text-warning mt-3">Hospital Registration
+                                Number*</label>
+                            <input type="text" maxlength="8" class="form-control" id="inputRegNumberRcpt">
                         </div>
                         <div class="form-group">
-                            <label for="inputRegNumber" class="text-warning">Hospital Registration Number*</label>
-                            <input type="text" maxlength="8" class="form-control" id="inputRegNumber">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress" class="text-light">Address</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            <label for="inputAddressRcpt" class="text-light">Address</label>
+                            <input type="text" class="form-control" id="inputAddressRcpt" placeholder="1234 Main St">
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputArea" class="text-light">Area</label>
-                                <input type="text" class="form-control" id="inputArea" placeholder="ex: Uttara">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="inputState" class="text-light">City</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>Dhaka</option>
-                                    <option>Chattagram</option>
-                                    <option>Sylhet</option>
-                                    <option>Khulna</option>
-                                    <option>Barishal</option>
-                                    <option>Rajshahi</option>
-                                    <option>Rangpur</option>
-                                    <option>Mymensingh</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="inputZip" class="text-light">Zip</label>
-                                <input type="text" maxlength="4" class="form-control" id="inputZip">
-                            </div>
+                            <label for="inputAreaRcpt" class="text-light">Area</label>
+                            <input type="text" class="form-control" id="inputAreaRcpt" placeholder="ex: Uttara">
                         </div>
-                        <!-- <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck">
-                                <label class="form-check-label" for="gridCheck">
-                                    Check me out
-                                </label>
+                        <div class="form-row mt-3">
+
+                            <div class="form-group col-md-6 ">
+                                <label for="districtRcpt" class="text-light">District</label>
+                                <select class="custom-select" id="districtRcpt">
+                                    <option value="0">Choose</option>
+                                    <option value="1">Dhaka </option>
+                                    <option value="2">Gazipur </option>
+                                    <option value="3">Kishoreganj </option>
+                                    <option value="4">Manikganj </option>
+                                    <option value="5">Munshiganj </option>
+                                    <option value="6">Narayanganj </option>
+                                    <option value="7">Narshingdi </option>
+                                    <option value="8">Tangail </option>
+                                    <option value="9">Faridpur </option>
+                                    <option value="10">Tangail </option>
+                                    <option value="11">Faridpur </option>
+                                    <option value="12">Gopalganj </option>
+                                    <option value="13">Madaripur </option>
+                                </select>
+                                <!-- 
+
+                                <div class="dropdown">
+                                    <label for="dropdownMenuLink" class="text-light">District</label>
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Choose
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <option class="dropdown-item" value="1">Dhaka District</option>
+                                        <option class="dropdown-item" value="2">Mrs</option>
+                                        <option class="dropdown-item" value="3">Ms</option>
+                                        <option class="dropdown-item" value="4">Dr</option>
+                                        <option class="dropdown-item" value="5">Prof</option>
+                                        <a class="dropdown-item" href="#">Dhaka District</a>
+                                        <a class="dropdown-item" href="#">Gazipur District</a>
+                                        <a class="dropdown-item" href="#">Kishoreganj District</a>
+                                        <a class="dropdown-item" href="#">Manikganj District</a>
+                                        <a class="dropdown-item" href="#">Munshiganj District</a>
+                                        <a class="dropdown-item" href="#">Narayanganj District</a>
+                                        <a class="dropdown-item" href="#">Narshingdi District</a>
+                                        <a class="dropdown-item" href="#"></a>
+                                        <a class="dropdown-item" href="#"></a>
+                                        <a class="dropdown-item" href="#"></a>
+                                        <a class="dropdown-item" href="#"></a>
+                                        <a class="dropdown-item" href="#">Rajbari District</a>
+                                        <a class="dropdown-item" href="#">Shariatpur District</a>
+
+                                    </div>
+                                </div> -->
+
                             </div>
-                        </div> -->
+                            <div class=" col-md-6">
+                                <label for="inputArea" class="text-light">Division</label>
+                                <input class="form-control" name="district" type="text" value="Dhaka" readonly>
+
+
+                            </div>
+
+                        </div>
+
                         <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary">Sign Me Up</button>
+                            <button type="submit" class="btn btn-primary" id="signUpBtnRecp">Sign Me Up</button>
                         </div>
 
                     </form>
@@ -221,27 +260,46 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputArea" class="text-light">Area</label>
-                                <input type="text" class="form-control" id="inputArea" placeholder="ex: Uttara">
+                            <label for="inputAreaDon" class="text-light">Area</label>
+                            <input type="text" class="form-control" id="inputAreaDon" placeholder="ex: Uttara">
+                        </div>
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6 " style="margin-top: 32px;">
+
+                                <div class="dropdown">
+                                    <label for="dropdownMenuLink" class="text-light">District</label>
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Choose
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Dhaka District</a>
+                                        <a class="dropdown-item" href="#">Gazipur District</a>
+                                        <a class="dropdown-item" href="#">Kishoreganj District</a>
+                                        <a class="dropdown-item" href="#">Manikganj District</a>
+                                        <a class="dropdown-item" href="#">Munshiganj District</a>
+                                        <a class="dropdown-item" href="#">Narayanganj District</a>
+                                        <a class="dropdown-item" href="#">Narshingdi District</a>
+                                        <a class="dropdown-item" href="#">Tangail District</a>
+                                        <a class="dropdown-item" href="#">Faridpur District</a>
+                                        <a class="dropdown-item" href="#">Gopalganj District</a>
+                                        <a class="dropdown-item" href="#">Madaripur District</a>
+                                        <a class="dropdown-item" href="#">Rajbari District</a>
+                                        <a class="dropdown-item" href="#">Shariatpur District</a>
+
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="inputState" class="text-light">City</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>Dhaka</option>
-                                    <option>Chattagram</option>
-                                    <option>Sylhet</option>
-                                    <option>Khulna</option>
-                                    <option>Barishal</option>
-                                    <option>Rajshahi</option>
-                                    <option>Rangpur</option>
-                                    <option>Mymensingh</option>
-                                </select>
+                            <div class=" col-md-6">
+                                <label for="inputArea" class="text-light">Division</label>
+                                <input class="form-control" name="district" type="text" value="Dhaka" readonly>
+
+
                             </div>
-                            <div class="form-group col-md-2">
-                                <label for="inputZip" class="text-light">Zip</label>
-                                <input type="text" maxlength="4" class="form-control" id="inputZip">
-                            </div>
+
                         </div>
                         <!-- <div class="form-group">
                             <div class="form-check">
@@ -259,8 +317,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="pt-5 pb-5" id="lotti">
-                        <script
-                            src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
                         <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_wv4mTG.json"
                             background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay>
                         </lottie-player>
@@ -317,6 +374,28 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script src="./js/user/signUp.js"></script>
+
+
+    <!-- lottie -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- lottie -->
+
+    <!-- firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script defer src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script defer src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <script defer src="./js/firebase/init-firebase.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+
+
+
+    <!-- firebase -->
 </body>
 
 </html>
