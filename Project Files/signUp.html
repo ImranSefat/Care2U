@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <div class="form-group ">
-                            <label for="inputEmailRcpt" class="text-light">Email</label>
+                            <label for="inputEmailRcpt" class="text-light" aria-describedby="emailHelp">Email</label>
                             <input type="email" placeholder="Personal or work email address" class="form-control"
                                 id="inputEmailRcpt">
                         </div>
@@ -118,9 +118,9 @@
                                     id="inputPasswordRcpt">
                             </div>
                             <div class="col-6">
-                                <label for="inputPasswordConfirmRcpt4" class="text-light">Confirm Password</label>
+                                <label for="inputPasswordConfirmRcpt" class="text-light">Confirm Password</label>
                                 <input type="password" class="form-control" placeholder="Retype"
-                                    id="inputPasswordConfirmRcpt4">
+                                    id="inputPasswordConfirmRcpt">
                             </div>
 
                         </div>
@@ -159,37 +159,6 @@
                                     <option value="12">Gopalganj </option>
                                     <option value="13">Madaripur </option>
                                 </select>
-                                <!-- 
-
-                                <div class="dropdown">
-                                    <label for="dropdownMenuLink" class="text-light">District</label>
-                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Choose
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <option class="dropdown-item" value="1">Dhaka District</option>
-                                        <option class="dropdown-item" value="2">Mrs</option>
-                                        <option class="dropdown-item" value="3">Ms</option>
-                                        <option class="dropdown-item" value="4">Dr</option>
-                                        <option class="dropdown-item" value="5">Prof</option>
-                                        <a class="dropdown-item" href="#">Dhaka District</a>
-                                        <a class="dropdown-item" href="#">Gazipur District</a>
-                                        <a class="dropdown-item" href="#">Kishoreganj District</a>
-                                        <a class="dropdown-item" href="#">Manikganj District</a>
-                                        <a class="dropdown-item" href="#">Munshiganj District</a>
-                                        <a class="dropdown-item" href="#">Narayanganj District</a>
-                                        <a class="dropdown-item" href="#">Narshingdi District</a>
-                                        <a class="dropdown-item" href="#"></a>
-                                        <a class="dropdown-item" href="#"></a>
-                                        <a class="dropdown-item" href="#"></a>
-                                        <a class="dropdown-item" href="#"></a>
-                                        <a class="dropdown-item" href="#">Rajbari District</a>
-                                        <a class="dropdown-item" href="#">Shariatpur District</a>
-
-                                    </div>
-                                </div> -->
 
                             </div>
                             <div class=" col-md-6">
@@ -204,7 +173,7 @@
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary" id="signUpBtnRecp">Sign Me Up</button>
                         </div>
-
+                        <button class="btn btn-danger" id="signOutBtn">SignOut</button>
                     </form>
                 </div>
             </div>
@@ -224,73 +193,67 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputName4" class="text-light">Name</label>
-                                <input type="text" placeholder="Full Name" class="form-control" id="inputName4">
+                                <input type="text" placeholder="Full Name" class="form-control" id="donorName">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputPhoneNumber" class="text-light">Phone Number</label>
-                                <input type="text" maxlength="11" class="form-control" id="inputPhoneNumber"
+                                <input type="text" maxlength="11" class="form-control" id="donorPhone"
                                     placeholder="without +88">
                             </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="inputEmail4" class="text-light">Email</label>
+                            <input type="email" placeholder="Personal or work email address" class="form-control"
+                                id="donorEmail">
                         </div>
                         <div class="form-row">
                             <div class="col-6">
                                 <label for="inputPassword4" class="text-light">Password</label>
                                 <input type="password" placeholder="Minimum 8 digit" class="form-control"
-                                    id="inputPassword4">
+                                    id="donorPassword">
                             </div>
                             <div class="col-6">
                                 <label for="inputPassword4" class="text-light">Confirm Password</label>
-                                <input type="password" class="form-control" placeholder="Retype" id="inputPassword4">
+                                <input type="password" class="form-control" placeholder="Retype"
+                                    id="donorPasswordConfirm">
                             </div>
 
                         </div>
-                        <div class="form-group mt-3">
-                            <label for="inputEmail4" class="text-light">Email</label>
-                            <input type="email" placeholder="Personal or work email address" class="form-control"
-                                id="inputEmail4">
-                        </div>
+
                         <div class="form-group">
                             <label for="inputNIDNumber" class="text-warning">NID Number*</label>
-                            <input type="text" maxlength="10" class="form-control" id="inputNIDNumber"
+                            <input type="text" maxlength="9" class="form-control" id="donorNidNumber"
                                 placeholder="9 Digit Number">
                         </div>
                         <div class="form-group">
                             <label for="inputAddress" class="text-light">Address</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            <input type="text" class="form-control" id="donorAddress" placeholder="1234 Main St">
                         </div>
 
                         <div class="form-row">
                             <label for="inputAreaDon" class="text-light">Area</label>
-                            <input type="text" class="form-control" id="inputAreaDon" placeholder="ex: Uttara">
+                            <input type="text" class="form-control" id="donorArea" placeholder="ex: Uttara">
                         </div>
-                        <div class="form-row">
+                        <div class="form-row mt-3">
 
-                            <div class="form-group col-md-6 " style="margin-top: 32px;">
-
-                                <div class="dropdown">
-                                    <label for="dropdownMenuLink" class="text-light">District</label>
-                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Choose
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Dhaka District</a>
-                                        <a class="dropdown-item" href="#">Gazipur District</a>
-                                        <a class="dropdown-item" href="#">Kishoreganj District</a>
-                                        <a class="dropdown-item" href="#">Manikganj District</a>
-                                        <a class="dropdown-item" href="#">Munshiganj District</a>
-                                        <a class="dropdown-item" href="#">Narayanganj District</a>
-                                        <a class="dropdown-item" href="#">Narshingdi District</a>
-                                        <a class="dropdown-item" href="#">Tangail District</a>
-                                        <a class="dropdown-item" href="#">Faridpur District</a>
-                                        <a class="dropdown-item" href="#">Gopalganj District</a>
-                                        <a class="dropdown-item" href="#">Madaripur District</a>
-                                        <a class="dropdown-item" href="#">Rajbari District</a>
-                                        <a class="dropdown-item" href="#">Shariatpur District</a>
-
-                                    </div>
-                                </div>
+                            <div class="form-group col-md-6 ">
+                                <label for="donorDistrict" class="text-light">District</label>
+                                <select class="custom-select" id="donorDistrict">
+                                    <option value="0">Choose</option>
+                                    <option value="1">Dhaka</option>
+                                    <option value="2">Gazipur</option>
+                                    <option value="3">Kishoreganj</option>
+                                    <option value="4">Manikganj</option>
+                                    <option value="5">Munshiganj</option>
+                                    <option value="6">Narayanganj /option>
+                                    <option value="7">Narshingdi</option>
+                                    <option value="8">Tangail</option>
+                                    <option value="9">Faridpur</option>
+                                    <option value="10">Tangail</option>
+                                    <option value="11">Faridpur</option>
+                                    <option value="12">Gopalganj</option>
+                                    <option value="13">Madaripur</option>
+                                </select>
 
                             </div>
                             <div class=" col-md-6">
@@ -301,16 +264,8 @@
                             </div>
 
                         </div>
-                        <!-- <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck">
-                                <label class="form-check-label" for="gridCheck">
-                                    Check me out
-                                </label>
-                            </div>
-                        </div> -->
                         <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-success ">Sign Me Up</button>
+                            <button type="submit" class="btn btn-success" id="donorSignUpBtn">Sign Me Up</button>
                         </div>
 
                     </form>
@@ -374,7 +329,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <script src="./js/user/signUp.js"></script>
+
+
 
 
     <!-- lottie -->
@@ -382,15 +338,19 @@
     <!-- lottie -->
 
     <!-- firebase -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script> -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script defer src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script defer src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
 
-    <script defer src="./js/firebase/init-firebase.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="./js/firebase/init-firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+
+    <script src="./js/user/signUp.js"></script>
 
 
 

@@ -7,7 +7,7 @@
     <title>Sign In</title>
     <!-- bootstrap -->
     <link rel="stylesheet" href="./style/bootstrap/bootstrap.min.css">
-    <script src="./js/bootstrap/bootstrap.min.js"></script>
+
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/53e5e12b26.js" crossorigin="anonymous"></script>
@@ -68,19 +68,18 @@
                 <div class="display-4 text-light mt-5 mb-4">Sign Into your account</div>
                 <form>
                     <div class="form-group ">
-                        <!-- <label for=" exampleInputPhone1">Phone Number</label> -->
-                        <input type="text" maxlength="11" class="form-control text-center mt-5" id="exampleInputPhone1"
-                            placeholder="Phone Number">
+
+                        <input type="text" class="form-control text-center mt-5" id="email" placeholder="Email Address">
                     </div>
 
                     <div class="form-group ">
-                        <!-- <label for="exampleInputPassword1">Password</label> -->
-                        <input type="password" class="form-control text-center mt-4" id="exampleInputPassword1"
+
+                        <input type="password" class="form-control text-center mt-4" id="password"
                             placeholder="Password">
                     </div>
 
-                    <button type="button" class="btn btn-primary mt-4">Submit</button><br>
-                    <button type="button" class="btn btn-secondary mt-4">Forgot Password?</button>
+                    <button type="button" class="btn btn-primary mt-4" id="loginBtn">Login</button><br>
+                    <button type="button" class="btn btn-secondary mt-4" id="forgotPassBtn">Forgot Password?</button>
 
                 </form>
                 <div class="display-5 text-light mt-3">Don't have an Account? <a href="signUp.html">Sign Up
@@ -128,6 +127,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
+
+    <!-- firebase -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <script src="./js/firebase/init-firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+
+    <!-- custom  -->
     <script src="./js/user/signIn.js"></script>
 </body>
 
