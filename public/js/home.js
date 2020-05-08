@@ -10,7 +10,8 @@
 $("#signOutBtn").click(function (e) {
     e.preventDefault();
     firebase.auth().signOut();
-    window.location.replace('./index.html')
+    // window.location.replace('./index.html')
+    location.reload()
 });
 
 
@@ -29,12 +30,6 @@ firebase.auth().onAuthStateChanged(function (user) {
         $("#status").css("display", "none");
         $("#signOutBtn").css("display", "none");
 
-        // // $("#status").off('click');
-        // // $("#status").prop('disabled', true);
-        // $("#status").css(
-        //     'pointer-events', 'none',
-
-        // )
 
     }
 });
