@@ -248,3 +248,156 @@ $('#updateBtnVentilators').click('click', function (params) {
     }
 })
 
+
+
+
+// requesting data updating 
+$('#requestBtnGloves').click('click', function (params) {
+    let requestedValue = $('#requestValueGloves').val()
+    if (requestedValue.length == 0) {
+        alert("Please enter how many first!")
+    } else {
+
+        let updatePath = database.ref('users/recipient')
+
+        updatePath.once('value', snapshot => {
+            let hospitals = snapshot.val()
+
+            let keys = Object.keys(hospitals)
+
+            keys.forEach(element => {
+                // getting the inventory data items value
+                if (userEmail === hospitals[element].email) {
+                    // console.log("email Matched");
+                    database.ref('users/recipient/' + element + '/itemRequested').update(
+                        {
+                            gloves: requestedValue,
+                            requested: true
+                        }
+                    )
+                    $('#requestValueGloves').val('')
+                    alert("Updated")
+
+                }
+            })
+        })
+    }
+})
+
+
+
+
+
+
+
+$('#requestBtnGowns').click('click', function (params) {
+    let requestedValue = $('#requestValueGowns').val()
+
+    if (requestedValue.length == 0) {
+        alert("Please enter how many first!")
+    } else {
+
+        let updatePath = database.ref('users/recipient')
+
+        updatePath.once('value', snapshot => {
+            let hospitals = snapshot.val()
+
+            let keys = Object.keys(hospitals)
+
+            keys.forEach(element => {
+                // getting the inventory data items value
+                if (userEmail === hospitals[element].email) {
+                    // console.log("email Matched");
+                    database.ref('users/recipient/' + element + '/itemRequested').update(
+                        {
+                            gowns: requestedValue,
+                            requested: true
+                        }
+                    )
+                    $('#requestValueGowns').val('')
+                    alert("Updated")
+
+                }
+            })
+        })
+    }
+})
+
+
+
+
+
+
+
+
+
+$('#requestBtnMasks').click('click', function (params) {
+    let requestedValue = $('#requestValueMasks').val()
+
+    if (requestedValue.length == 0) {
+        alert("Please enter how many first!")
+    } else {
+
+        let updatePath = database.ref('users/recipient')
+
+        updatePath.once('value', snapshot => {
+            let hospitals = snapshot.val()
+
+            let keys = Object.keys(hospitals)
+
+            keys.forEach(element => {
+                // getting the inventory data items value
+                if (userEmail === hospitals[element].email) {
+                    // console.log("email Matched");
+                    database.ref('users/recipient/' + element + '/itemRequested').update(
+                        {
+                            masks: requestedValue,
+                            requested: true
+                        }
+                    )
+                    $('#requestValueMasks').val('')
+                    alert("Updated")
+
+                }
+            })
+        })
+    }
+})
+
+
+
+
+
+
+$('#requestBtnVentilators').click('click', function (params) {
+    let requestedValue = $('#requestValueVentilators').val()
+
+    if (requestedValue.length == 0) {
+        alert("Please enter how many first!")
+    } else {
+
+        let updatePath = database.ref('users/recipient')
+
+        updatePath.once('value', snapshot => {
+            let hospitals = snapshot.val()
+
+            let keys = Object.keys(hospitals)
+
+            keys.forEach(element => {
+                // getting the inventory data items value
+                if (userEmail === hospitals[element].email) {
+                    // console.log("email Matched");
+                    database.ref('users/recipient/' + element + '/itemRequested').update(
+                        {
+                            ventilators: requestedValue,
+                            requested: true
+                        }
+                    )
+                    $('#requestValueVentilators').val('')
+                    alert("Updated")
+
+                }
+            })
+        })
+    }
+})
