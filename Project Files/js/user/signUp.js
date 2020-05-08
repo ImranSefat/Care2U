@@ -4,16 +4,6 @@
 
 
 let database = firebase.database()
-// let recipient_path = database.ref('users/recipient')
-// let data = {
-//     name: 'Imran',
-//     phone: '00212'
-// }
-// recipient_path.push(data)
-
-// recipient_path.push(data)
-
-// database testing 
 
 
 
@@ -96,7 +86,8 @@ $("#signUpBtnRecp").click(function (e) {
                         gloves: 0,
                         gowns: 0,
                         masks: 0,
-                        ventilators: 0
+                        ventilators: 0,
+                        requested: false
                     },
                     itemsAvailable: {
                         gloves: 0,

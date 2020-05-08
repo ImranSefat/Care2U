@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="shortcut icon" href="./img/Care2U Logo.png" type="image/x-icon">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./style/bootstrap/bootstrap.min.css">
+
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/53e5e12b26.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style/signUp.css">
+
+
+
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-3 pb-3">
+
+        <!-- left side -->
+        <a class="navbar-brand" href="./index.html">
+            <img src="./img/Care2U Logo.png" width="30" height="30" alt="">
+            Care2U</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./dashboard.html">Status</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./hospitalFinder.html">Hospital Finder</a>
+                </li>
+            </ul>
+
+
+            <!-- right side -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="./login.html"><i class="fas fa-sign-in-alt text-light"
+                            style="margin-right: 10px;"></i>Login <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./signUp.html">Sign Up</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- navbar -->
+
+    <!-- banner -->
+
+    <div id="intro" class="bg-dark">
+
+        <div class="content">
+            <div class="container">
+                <div class="display-1 text-light mb-5 ">Care2U</div>
+                <h3 class="display-4 text-light">Sign Up as <a href="#recipient" class="text-warning">Recipient</a> or a
+                    <a href="#donor">Donor</a></h3>
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- banner -->
+
+    <!-- Recipient -->
+    <div class="bg-dark">
+        <div class="container" id="recipient">
+
+            <div class="display-3 text-light text-center pb-5 pt-5">Sign Up as a Recipient</div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="pt-5 pb-5" id="lotti">
+
+                        <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_wdXBRc.json"
+                            background="transparent" speed="1" style="width: 100%; height: 400px;" loop autoplay>
+                        </lottie-player>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputNameRcpt" class="text-light">Name</label>
+                                <input type="text" placeholder="Full Name" class="form-control" id="inputNameRcpt">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPhoneNumberRcpt" class="text-light">Phone Number</label>
+                                <input type="text" maxlength="11" class="form-control" id="inputPhoneNumberRcpt"
+                                    placeholder="without +88">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="inputEmailRcpt" class="text-light" aria-describedby="emailHelp">Email</label>
+                            <input type="email" placeholder="Personal or work email address" class="form-control"
+                                id="inputEmailRcpt">
+                        </div>
+                        <div class="form-row">
+                            <div class="col-6">
+                                <label for="inputPasswordRcpt" class="text-light">Password</label>
+                                <input type="password" placeholder="Minimum 8 digit" class="form-control"
+                                    id="inputPasswordRcpt">
+                            </div>
+                            <div class="col-6">
+                                <label for="inputPasswordConfirmRcpt" class="text-light">Confirm Password</label>
+                                <input type="password" class="form-control" placeholder="Retype"
+                                    id="inputPasswordConfirmRcpt">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputRegNumberRcpt" class="text-warning mt-3">Hospital Registration
+                                Number*</label>
+                            <input type="text" maxlength="8" class="form-control" id="inputRegNumberRcpt">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddressRcpt" class="text-light">Address</label>
+                            <input type="text" class="form-control" id="inputAddressRcpt" placeholder="1234 Main St">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="inputAreaRcpt" class="text-light">Area</label>
+                            <input type="text" class="form-control" id="inputAreaRcpt" placeholder="ex: Uttara">
+                        </div>
+                        <div class="form-row mt-3">
+
+                            <div class="form-group col-md-6 ">
+                                <label for="districtRcpt" class="text-light">District</label>
+                                <select class="custom-select" id="districtRcpt">
+                                    <option value="0">Choose</option>
+                                    <option value="1">Dhaka </option>
+                                    <option value="2">Gazipur </option>
+                                    <option value="3">Kishoreganj </option>
+                                    <option value="4">Manikganj </option>
+                                    <option value="5">Munshiganj </option>
+                                    <option value="6">Narayanganj </option>
+                                    <option value="7">Narshingdi </option>
+                                    <option value="8">Tangail </option>
+                                    <option value="9">Faridpur </option>
+                                    <option value="10">Tangail </option>
+                                    <option value="11">Faridpur </option>
+                                    <option value="12">Gopalganj </option>
+                                    <option value="13">Madaripur </option>
+                                </select>
+
+                            </div>
+                            <div class=" col-md-6">
+                                <label for="inputArea" class="text-light">Division</label>
+                                <input class="form-control" name="district" type="text" value="Dhaka" readonly>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary" id="signUpBtnRecp">Sign Me Up</button>
+                        </div>
+                        <button class="btn btn-danger" id="signOutBtn">SignOut</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Recipient -->
+
+
+    <!-- Donor -->
+    <div class="bg-dark" style="padding-top: 100px; padding-bottom: 100px;">
+        <div class="container" id="donor">
+
+            <div class="display-3 text-light text-center pb-5 pt-5">Sign Up as a Donor</div>
+            <div class="row">
+                <div class="col-md-6">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputName4" class="text-light">Name</label>
+                                <input type="text" placeholder="Full Name" class="form-control" id="donorName">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPhoneNumber" class="text-light">Phone Number</label>
+                                <input type="text" maxlength="11" class="form-control" id="donorPhone"
+                                    placeholder="without +88">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="inputEmail4" class="text-light">Email</label>
+                            <input type="email" placeholder="Personal or work email address" class="form-control"
+                                id="donorEmail">
+                        </div>
+                        <div class="form-row">
+                            <div class="col-6">
+                                <label for="inputPassword4" class="text-light">Password</label>
+                                <input type="password" placeholder="Minimum 8 digit" class="form-control"
+                                    id="donorPassword">
+                            </div>
+                            <div class="col-6">
+                                <label for="inputPassword4" class="text-light">Confirm Password</label>
+                                <input type="password" class="form-control" placeholder="Retype"
+                                    id="donorPasswordConfirm">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputNIDNumber" class="text-warning">NID Number*</label>
+                            <input type="text" maxlength="9" class="form-control" id="donorNidNumber"
+                                placeholder="9 Digit Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress" class="text-light">Address</label>
+                            <input type="text" class="form-control" id="donorAddress" placeholder="1234 Main St">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="inputAreaDon" class="text-light">Area</label>
+                            <input type="text" class="form-control" id="donorArea" placeholder="ex: Uttara">
+                        </div>
+                        <div class="form-row mt-3">
+
+                            <div class="form-group col-md-6 ">
+                                <label for="donorDistrict" class="text-light">District</label>
+                                <select class="custom-select" id="donorDistrict">
+                                    <option value="0">Choose</option>
+                                    <option value="1">Dhaka</option>
+                                    <option value="2">Gazipur</option>
+                                    <option value="3">Kishoreganj</option>
+                                    <option value="4">Manikganj</option>
+                                    <option value="5">Munshiganj</option>
+                                    <option value="6">Narayanganj /option>
+                                    <option value="7">Narshingdi</option>
+                                    <option value="8">Tangail</option>
+                                    <option value="9">Faridpur</option>
+                                    <option value="10">Tangail</option>
+                                    <option value="11">Faridpur</option>
+                                    <option value="12">Gopalganj</option>
+                                    <option value="13">Madaripur</option>
+                                </select>
+
+                            </div>
+                            <div class=" col-md-6">
+                                <label for="inputArea" class="text-light">Division</label>
+                                <input class="form-control" name="district" type="text" value="Dhaka" readonly>
+
+
+                            </div>
+
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success" id="donorSignUpBtn">Sign Me Up</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="pt-5 pb-5" id="lotti">
+
+                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_wv4mTG.json"
+                            background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay>
+                        </lottie-player>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Donor -->
+
+
+
+
+
+
+
+
+
+    <div class="bg-dark py-3">
+
+        <!--Section: Content-->
+        <section class=" px-5 px-md-5 py-1 text-center text-light bg-dark z-depth-1 ">
+
+            <h3 class="">Made with <i class="fas fa-heart red-text mx-1"></i> by Eleven Squared Team</h3>
+            <!-- Copyright -->
+            <div class="footer-copyright text-center text-warning ">©2020 Copyright:
+                Eleven Squared Team
+            </div>
+            <!-- Copyright -->
+        </section>
+        <!--Section: Content-->
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- bootstrap jquery and popper min js -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+
+
+
+    <!-- lottie -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- lottie -->
+
+    <!-- firebase -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script> -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <script src="./js/firebase/init-firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+
+
+    <script src="./js/user/signUp.js"></script>
+
+
+
+
+    <!-- firebase -->
+</body>
+
+</html>

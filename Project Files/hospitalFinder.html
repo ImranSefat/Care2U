@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Finder</title>
+    <link rel="shortcut icon" href="./img/Care2U Logo.png" type="image/x-icon">
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="./style/bootstrap/bootstrap.min.css">
@@ -24,7 +25,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-3 pb-3">
 
         <!-- left side -->
-        <a class="navbar-brand" href="#">Care2U</a>
+        <a class="navbar-brand" href="./index.html">
+            <img src="./img/Care2U Logo.png" width="30" height="30" alt="">
+            Care2U</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -108,7 +111,6 @@
             <table class="table table-striped table-dark table-hover">
                 <thead class="thead-dark">
                     <tr>
-
                         <th scope="col">Hospital Name</th>
                         <th scope="col">Area</th>
                         <th scope="col">District</th>
@@ -116,7 +118,8 @@
                         <th scope="col">Isolation Gowns</th>
                         <th scope="col">Masks</th>
                         <th scope="col">Ventilators</th>
-                        <th scope="col">Staffs</th>
+
+                        <th scope="col">Donate</th>
 
                     </tr>
                 </thead>
@@ -129,8 +132,10 @@
                         <td>18</td>
                         <td>350</td>
                         <td>27</td>
-                        <td>7</td>
+
+                        <td><button class="btn btn-success">Donate Now</button> </td>
                     </tr>
+
 
                 </tbody>
             </table>

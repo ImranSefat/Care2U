@@ -1,14 +1,16 @@
-
 //checking if the user's email is verified or not 
+let database = firebase.database()
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        console.log(user.email, "is signed in.");
+
         $("#loginBtn").css("display", "none");
         $("#signUpBtn").css("display", "none");
         let verified = firebase.auth().currentUser.emailVerified
-        //console.log(verified);
+
         if (verified) {
-            //window.location.replace('../dashboard.html')
+            const recipient = checkingIfRecipient(user.email)
+            console.log(recipient);
+
         } else {
             alert("Verify Your Email Address to go to your dashboard")
             window.location.replace('../index.html')
@@ -19,6 +21,28 @@ firebase.auth().onAuthStateChanged(function (user) {
         window.location.replace('../index.html')
     }
 });
+
+function checkingIfRecipient(email) {
+
+    let recipientList = database.ref('userList/recipientList')
+
+    recipientList.once('value', function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+
+            var childData = childSnapshot.val();
+            if (email == childData.email) {
+                return true
+            } else return false
+            // console.log(childData.email);
+
+        });
+    });
+
+
+
+
+
+}
 
 
 
