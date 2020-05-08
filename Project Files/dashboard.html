@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
   <!-- bootstrap -->
   <link rel="stylesheet" href="./style/bootstrap/bootstrap.min.css">
-  <script src="./js/bootstrap/bootstrap.min.js"></script>
+
   <link rel="stylesheet" href="./style/dashboard.css">
 
 </head>
@@ -20,7 +20,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-3 pb-3">
 
     <!-- left side -->
-    <a class="navbar-brand" href="index.html">Care2U</a>
+    <a class="navbar-brand" href="./index.html">Care2U</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
       aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,14 +28,14 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item ">
-          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="#">Status</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="hospitalFinder.html">Hospital Finder</a>
+          <a class="nav-link" href="./hospitalFinder.html">Hospital Finder</a>
         </li>
       </ul>
 
@@ -43,13 +43,16 @@
       <!-- right side -->
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#"><i class="fas fa-sign-in-alt text-light" style="margin-right: 10px;"></i>Login
-            <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="./login.html" id="loginBtn"><i class="fas fa-sign-in-alt text-light"
+              style="margin-right: 10px;"></i>Login <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Sign Up</a>
+          <a class="nav-link" href="./signUp.html" id="signUpBtn">Sign Up</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" id="signOutBtn" style="cursor: pointer;">Sign Out</a>
 
+        </li>
       </ul>
 
     </div>
@@ -61,9 +64,8 @@
   <div class="head bg-dark">
     <!-- header -->
     <div class="container">
-      <div class="display-4 pt-5 text-center text-light">Availability and requirements of Personal Protection Equipment
-        (PPE) and
-        staffs</div>
+      <div class="display-4 pt-5 text-center text-light">Availability and Requirements of Personal Protection Equipment
+        (PPE)</div>
     </div>
     <!-- header -->
     <!-- information requirements -->
@@ -248,7 +250,7 @@
         <h3 class="">Made with <i class="fas fa-heart red-text px-1"></i> by Eleven Squared Team</h3>
         <!-- Copyright -->
         <div class="footer-copyright text-center text-warning ">©2020 Copyright:
-          Elven Squared Team
+          Eleven Squared Team
         </div>
         <!-- Copyright -->
       </section>
@@ -280,6 +282,24 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
   <script src="./js/Info/info.js"></script>
+
+  <!-- firebase -->
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+  <script src="./js/firebase/init-firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+
+
+
+
+  <script src="./js/dashboard.js"></script>
 </body>
 
 </html>

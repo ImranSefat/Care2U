@@ -1,5 +1,20 @@
 //checking if a user is signed in
 
+// database testing 
+
+
+let database = firebase.database()
+// let recipient_path = database.ref('users/recipient')
+// let data = {
+//     name: 'Imran',
+//     phone: '00212'
+// }
+// recipient_path.push(data)
+
+// recipient_path.push(data)
+
+// database testing 
+
 
 
 // receipent sign up 
@@ -20,6 +35,9 @@ $("#signUpBtnRecp").click(function (e) {
 
     // email address validation 
     let valid = validateEmail(email)
+
+    let accountType = 'recipient'
+
 
 
     let invalid = false
@@ -54,8 +72,42 @@ $("#signUpBtnRecp").click(function (e) {
                 invalid = true
             }
             if (!invalid) {
-                createAccount(email, password)
-                //sendEmailVerification()
+                let dataOfUser = {
+                    name: name,
+                    phoneNumber: phoneNumber,
+                    email: email,
+                    regNo: regNo,
+                    address: address,
+                    area: area,
+                    district: district,
+                    donorList: [
+                        {
+                            item: {
+                                gloves: 0,
+                                gowns: 0,
+                                masks: 0,
+                                ventilators: 0
+                            },
+                            name: "who donated"
+                        }
+                    ]
+                    ,
+                    itemRequested: {
+                        gloves: 0,
+                        gowns: 0,
+                        masks: 0,
+                        ventilators: 0
+                    },
+                    itemsAvailable: {
+                        gloves: 0,
+                        gowns: 0,
+                        masks: 0,
+                        ventilators: 0
+                    },
+                }
+                createAccount(email, password, accountType, dataOfUser)
+
+
             }
 
 
@@ -68,8 +120,6 @@ $("#signUpBtnRecp").click(function (e) {
 });
 
 
-
-// receipent sign up 
 
 
 
@@ -91,12 +141,12 @@ $("#donorSignUpBtn").click(function (e) {
     let area = $("#donorArea").val()
     let district = $("#donorDistrict option:selected").text();
 
-    //console.log(name, phoneNumber, email, password, rePassword, nidNumber, address, area, district);
+
 
     // email address validation 
     let valid = validateEmail(email)
-    // console.log(valid);
 
+    let accountType = 'donor'
     let invalid = false
     if (valid) {
         if (password === rePassword) {
@@ -129,21 +179,36 @@ $("#donorSignUpBtn").click(function (e) {
                 invalid = true
             }
             if (!invalid) {
-                createAccount(email, password)
-
+                let dataOfUser = {
+                    name: name,
+                    phoneNumber: phoneNumber,
+                    email: email,
+                    nidNumber: nidNumber,
+                    address: address,
+                    area: area,
+                    district: district,
+                    donatedTo: [
+                        {
+                            address: "Sample Address",
+                            item: {
+                                gloves: 0,
+                                gowns: 0,
+                                masks: 0,
+                                ventilators: 0
+                            },
+                            name: "Hospital Name"
+                        }
+                    ],
+                }
+                createAccount(email, password, accountType, dataOfUser)
             }
-
-
         } else {
             alert("Please check your password")
         }
     }
-
-
 });
 
 
-// donor sign up
 
 
 $("#signOutBtn").click(function (e) {
@@ -162,7 +227,7 @@ function validateEmail(mail) {
 }
 
 
-function createAccount(email, password) {
+function createAccount(email, password, accountType, dataOfUser) {
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -176,8 +241,45 @@ function createAccount(email, password) {
         console.log(error);
         // [END_EXCLUDE]
 
+
+
+
     }).then(function (error) {
-        sendEmailVerification()
+
+
+        console.log(accountType);
+        if (accountType == 'donor') {
+            console.log(accountType);
+            let donor_db_path = database.ref('users/donor')
+            let donorList = database.ref('userList/donorList')
+
+            donor_db_path.push(dataOfUser)
+            let listData = {
+                name: dataOfUser.name,
+                email: dataOfUser.email
+            }
+            donorList.push(listData)
+
+            sendEmailVerification()
+        } else {
+            if (accountType == 'recipient') {
+                console.log(accountType);
+                let recipient_db_path = database.ref('users/recipient')
+                let recipientList = database.ref('userList/recipientList')
+
+                recipient_db_path.push(dataOfUser)
+                let listData = {
+                    name: dataOfUser.name,
+                    email: dataOfUser.email
+                }
+                recipientList.push(listData)
+
+                sendEmailVerification()
+            }
+        }
+        firebase.auth().signOut();
+        location.reload
+
 
 
     })
@@ -188,6 +290,7 @@ function sendEmailVerification() {
 
     user.sendEmailVerification().then(function () {
         alert("Check your email to verify")
+
         window.location.replace('../login.html')
         // Email sent.
     }).catch(function (error) {
