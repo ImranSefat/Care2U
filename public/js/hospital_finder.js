@@ -7,6 +7,8 @@ $("#signOutBtn").css("display", "none");
 let database = firebase.database()
 let rootRef = database.ref('users/recipient')
 
+let requested = false
+
 let namesList = []
 let addressList = []
 let area = []
@@ -15,11 +17,13 @@ let gloves = []
 let gowns = []
 let masks = []
 let ventilators = []
-// $('#listing_starts').remove();
+
 
 
 
 rootRef.on('value', snapshot => {
+
+    requested = false
 
     namesList = []
     addressList = []
@@ -35,16 +39,25 @@ rootRef.on('value', snapshot => {
 
     keys.forEach(element => {
         // getting all the data 
-        namesList.push(hospitals[element].name)
-        addressList.push(hospitals[element].address)
 
-        area.push(hospitals[element].area)
-        district.push(hospitals[element].district)
+        requested = (hospitals[element].itemRequested.requested)
+        if (requested) {
+            namesList.push(hospitals[element].name)
+            addressList.push(hospitals[element].address)
 
-        gloves.push(hospitals[element].itemRequested.gloves)
-        gowns.push(hospitals[element].itemRequested.gowns)
-        masks.push(hospitals[element].itemRequested.masks)
-        ventilators.push(hospitals[element].itemRequested.ventilators)
+            area.push(hospitals[element].area)
+            district.push(hospitals[element].district)
+
+
+            gloves.push(hospitals[element].itemRequested.gloves)
+            gowns.push(hospitals[element].itemRequested.gowns)
+            masks.push(hospitals[element].itemRequested.masks)
+            ventilators.push(hospitals[element].itemRequested.ventilators)
+        } else {
+
+        }
+
+
 
         $('#listing_starts').empty();
 

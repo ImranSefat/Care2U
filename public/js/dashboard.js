@@ -24,28 +24,6 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
-function checkingIfRecipient(email) {
-
-    let recipientList = database.ref('userList/recipientList')
-
-    recipientList.once('value', function (snapshot) {
-        snapshot.forEach(function (childSnapshot) {
-
-            var childData = childSnapshot.val();
-            if (email == childData.email) {
-                return true
-            } else return false
-
-
-        });
-    });
-
-
-
-
-
-}
-
 
 
 $("#signOutBtn").click(function (e) {
@@ -54,3 +32,54 @@ $("#signOutBtn").click(function (e) {
     location.reload
 });
 
+
+let rootRef = database.ref('users/recipient')
+//items in the available section
+let availableGloves = []
+let availableGowns = []
+let availableMasks = []
+let availableVentilators = []
+
+
+let requiredGloves = []
+let requiredGowns = []
+let requiredMasks = []
+let requiredVentilators = []
+
+
+
+
+rootRef.on('value', snapshot => {
+
+    availableGloves = []
+    availableGowns = []
+    availableMasks = []
+    availableVentilators = []
+
+    requiredGloves = []
+    requiredGowns = []
+    requiredMasks = []
+    requiredVentilators = []
+
+    let hospitals = snapshot.val()
+
+    let keys = Object.keys(hospitals)
+
+    keys.forEach(element => {
+        // getting the inventory data items value
+
+        requiredGloves.push(hospitals[element].itemsRequested.gloves)
+        requiredGowns.push(hospitals[element].itemRequested.gowns)
+        requiredMasks.push(hospitals[element].itemRequested.masks)
+        requiredVentilators.push(hospitals[element].itemRequested.ventilators)
+
+        availableGloves.push(hospitals[element].itemsAvailable.gloves)
+        availableGowns.push(hospitals[element].itemsAvailable.gowns)
+        availableMasks.push(hospitals[element].itemsAvailable.masks)
+        availableVentilators.push(hospitals[element].itemsAvailable.ventilators)
+
+
+
+    });
+
+})
