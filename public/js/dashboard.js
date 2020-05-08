@@ -2,14 +2,33 @@
 let database = firebase.database()
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-
         $("#loginBtn").css("display", "none");
         $("#signUpBtn").css("display", "none");
         let verified = firebase.auth().currentUser.emailVerified
 
         if (verified) {
-            const recipient = checkingIfRecipient(user.email)
-            console.log(recipient);
+
+            const myPromise = new Promise(function (resolve, reject) {
+                //const recipient = checkingIfRecipient(user.email)
+
+                let recipientList = database.ref('userList/recipientList')
+
+                recipientList.once('value', function (snapshot) {
+                    snapshot.forEach(function (childSnapshot) {
+
+                        var childData = childSnapshot.val();
+                        if (email == childData.email) {
+                            return true
+                        } else return false
+                        // console.log(childData.email);
+
+                    });
+                });
+                console.log(recipient);
+            })
+
+            // const recipient = checkingIfRecipient(user.email)
+            // console.log(recipient);
 
         } else {
             alert("Verify Your Email Address to go to your dashboard")

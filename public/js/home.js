@@ -10,7 +10,7 @@
 $("#signOutBtn").click(function (e) {
     e.preventDefault();
     firebase.auth().signOut();
-    location.reload
+    window.location.replace('./index.html')
 });
 
 
@@ -22,13 +22,19 @@ firebase.auth().onAuthStateChanged(function (user) {
         console.log(user.email, "is signed in.");
         $("#loginBtn").css("display", "none");
         $("#signUpBtn").css("display", "none");
-        $("#status").prop('disabled', true);
+
 
     } else {
         console.log("None Found.");
+        $("#status").css("display", "none");
         $("#signOutBtn").css("display", "none");
-        $("#status").off('click');
-        // $("#anchorid").off('click');
+
+        // // $("#status").off('click');
+        // // $("#status").prop('disabled', true);
+        // $("#status").css(
+        //     'pointer-events', 'none',
+
+        // )
 
     }
 });

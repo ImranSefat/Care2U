@@ -18,6 +18,7 @@ $("#signUpBtnRecp").click(function (e) {
     let rePassword = $("#inputPasswordConfirmRcpt").val()
 
     let regNo = $("#inputRegNumberRcpt").val()
+    let nidNumber = $("#inputNidNumberRcpt").val()
     let address = $("#inputAddressRcpt").val()
     let area = $("#inputAreaRcpt").val()
     let district = $("#districtRcpt option:selected").text();
@@ -42,11 +43,15 @@ $("#signUpBtnRecp").click(function (e) {
                 invalid = true
             }
             if (phoneNumber.length < 11) {
-                alert("Phone Number Cannot be lesse than 11 digits")
+                alert("Phone Number Cannot be less than 11 digits")
                 invalid = true
             }
             if (regNo.length < 8) {
-                alert("Registration Number Cannot be lesse than 8 digits")
+                alert("Registration Number Cannot be less than 8 digits")
+                invalid = true
+            }
+            if (nidNumber.length === 10 || nidNumber.length === 13) {
+                alert("Invalid NID Number")
                 invalid = true
             }
             if (address.length == 0) {
@@ -67,6 +72,7 @@ $("#signUpBtnRecp").click(function (e) {
                     phoneNumber: phoneNumber,
                     email: email,
                     regNo: regNo,
+                    nidNumber,
                     address: address,
                     area: area,
                     district: district,
@@ -150,11 +156,11 @@ $("#donorSignUpBtn").click(function (e) {
                 invalid = true
             }
             if (phoneNumber.length < 11) {
-                alert("Phone Number Cannot be lesse than 11 digits")
+                alert("Phone Number Cannot be less than 11 digits")
                 invalid = true
             }
-            if (nidNumber.length < 9) {
-                alert("NID Number Cannot be lesse than 8 digits")
+            if (nidNumber.length === 10 || nidNumber.length === 13) {
+                alert("Invalid NID Number")
                 invalid = true
             }
             if (address.length == 0) {
@@ -300,6 +306,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     } else {
         console.log("None Found.");
         // No user is signed in.
+        $("#status").css("display", "none");
     }
 });
 

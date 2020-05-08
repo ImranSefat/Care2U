@@ -26,8 +26,8 @@
 
         <!-- left side -->
         <a class="navbar-brand" href="./index.html">
-            <img src="./img/Care2U Logo.png" width="30" height="30" alt="">
-            Care2U</a>
+            <img src="./img/Care2U Logo.png" width="50" height="50" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -111,29 +111,29 @@
             <table class="table table-striped table-dark table-hover">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Hospital Name</th>
-                        <th scope="col">Area</th>
-                        <th scope="col">District</th>
-                        <th scope="col">Gloves</th>
-                        <th scope="col">Isolation Gowns</th>
-                        <th scope="col">Masks</th>
-                        <th scope="col">Ventilators</th>
+                        <th scope="col" class="text-center">Hospital Name</th>
+                        <th scope="col" class="text-center">Area</th>
+                        <th scope="col" class="text-center">District</th>
+                        <th scope="col" class="text-center">Gloves</th>
+                        <th scope="col" class="text-center">Isolation Gowns</th>
+                        <th scope="col" class="text-center">Masks</th>
+                        <th scope="col" class="text-center">Ventilators</th>
 
-                        <th scope="col">Donate</th>
+                        <th scope="col" class="text-center">Donate</th>
 
                     </tr>
                 </thead>
                 <tbody class="listing_starts">
                     <tr class="listing_row">
-                        <td>Better Life Hospital Ltd.</td>
-                        <td>Rampura</td>
-                        <td>Dhaka</td>
-                        <td>240</td>
-                        <td>18</td>
-                        <td>350</td>
-                        <td>27</td>
+                        <td class="text-center">Better Life Hospital Ltd.</td>
+                        <td class="text-center">Rampura</td>
+                        <td class="text-center">Dhaka</td>
+                        <td class="text-center">240</td>
+                        <td class="text-center">18</td>
+                        <td class="text-center">350</td>
+                        <td class="text-center">27</td>
 
-                        <td><button class="btn btn-success">Donate Now</button> </td>
+                        <td class="text-center"><button class="btn btn-success">Donate Now</button> </td>
                     </tr>
 
 
@@ -192,6 +192,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
+
+
+    <!-- firebase -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <script src="./js/firebase/init-firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+
+    <!-- custom  -->
+    <script src="./js/hospital_finder.js"></script>
 </body>
 
 </html>
