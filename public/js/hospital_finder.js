@@ -1,3 +1,8 @@
+$("#status").css("display", "none");
+$("#loginBtn").css("display", "none");
+$("#signUpBtn").css("display", "none");
+$("#signOutBtn").css("display", "none");
+
 //initializing database
 let database = firebase.database()
 let rootRef = database.ref('users/recipient')
@@ -68,7 +73,6 @@ rootRef.on('value', snapshot => {
         console.log(values);
     })
 
-
 })
 
 
@@ -78,15 +82,25 @@ rootRef.on('value', snapshot => {
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         console.log(user.email, "is signed in.");
-        $("#loginBtn").css("display", "none");
-        $("#signUpBtn").css("display", "none");
-
+        $("#status").css("display", "block");
+        $("#signOutBtn").css("display", "block");
 
     } else {
         console.log("None Found.");
-        $("#status").css("display", "none");
-        $("#signOutBtn").css("display", "none");
 
+        $("#loginBtn").css("display", "block");
+        $("#signUpBtn").css("display", "block");
 
     }
 });
+
+
+
+
+
+$("#signOutBtn").click(function (e) {
+    e.preventDefault();
+    firebase.auth().signOut();
+    location.reload
+});
+

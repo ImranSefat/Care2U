@@ -42,6 +42,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     } else {
         console.log("None Found.");
         // No user is signed in.
+
+        $("#signOutBtn").css("display", "none");
     }
 });
 
