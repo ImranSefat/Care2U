@@ -64,7 +64,7 @@ rootRef.on('value', snapshot => {
         // getting the inventory data items value
         if (userEmail === hospitals[element].email) {
             //matching the email to see the correct data of that specific user 
-            console.log("Email Matched");
+            // console.log("Email Matched");
             requiredGloves = (hospitals[element].itemRequested.gloves)
             requiredGowns = (hospitals[element].itemRequested.gowns)
             requiredMasks = (hospitals[element].itemRequested.masks)
