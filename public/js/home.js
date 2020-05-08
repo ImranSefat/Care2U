@@ -28,8 +28,11 @@ rootRef.on('value', snapshot => {
     let user = firebase.auth().currentUser
     let currentUserEmail = user.email
     let userIsRecipient = allHospitalEmails.includes(currentUserEmail)
-    console.log(userIsRecipient);
-    $("#status").css("display", "block");
+    // console.log(userIsRecipient);
+    if (userIsRecipient) {
+        $("#status").css("display", "block");
+    }
+
 })
 
 
@@ -38,7 +41,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         console.log(user.email, "is signed in.");
         $("#signOutBtn").css("display", "block");
-        $("#status").css("display", "block");
+
 
     } else {
         console.log("None Found.");
