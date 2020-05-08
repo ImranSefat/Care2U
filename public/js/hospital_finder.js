@@ -10,100 +10,66 @@ let gloves = []
 let gowns = []
 let masks = []
 let ventilators = []
-$('.listing_row').remove();
-// $(document).ready(function () {
-//     // $("#testing1").children("#listing_row").remove()
-//     // $("#testRe").click(function (e) {
-//     //     e.preventDefault();
-//     //     alert("asd")
-//     //     $("#listing_row").remove();
-//     // });
-// });
+// $('#listing_starts').remove();
+
 
 
 rootRef.on('value', snapshot => {
+
+    namesList = []
+    addressList = []
+    area = []
+    district = []
+    gloves = []
+    gowns = []
+    masks = []
+    ventilators = []
     let hospitals = snapshot.val()
 
     let keys = Object.keys(hospitals)
 
     keys.forEach(element => {
         // getting all the data 
-        // console.log(hospitals);
         namesList.push(hospitals[element].name)
         addressList.push(hospitals[element].address)
 
         area.push(hospitals[element].area)
         district.push(hospitals[element].district)
 
-        gloves.push(hospitals[element].itemsAvailable.gloves)
-        gowns.push(hospitals[element].itemsAvailable.gowns)
-        masks.push(hospitals[element].itemsAvailable.masks)
-        ventilators.push(hospitals[element].itemsAvailable.ventilators)
+        gloves.push(hospitals[element].itemRequested.gloves)
+        gowns.push(hospitals[element].itemRequested.gowns)
+        masks.push(hospitals[element].itemRequested.masks)
+        ventilators.push(hospitals[element].itemRequested.ventilators)
 
+        $('#listing_starts').empty();
 
 
 
     });
 
     for (let index = 0; index < namesList.length; index++) {
-        console.log("Name: ", namesList[index],
-            "address: ", addressList[index],
-        );
+        let _newRow = '<tr><td class="text-center">' + namesList[index] + '</td><td class="text-center">' + addressList[index] + '</td><td class="text-center">' + area[index] + '</td><td class="text-center">' + district[index] + '</td><td class="text-center">' + gloves[index] + '</td><td class="text-center">' + gowns[index] + '</td><td class="text-center">' + masks[index] + '</td></td><td class="text-center">' + ventilators[index] + '</td><td class="text-center"><button class="btn btn-success" id="orderBtn" >Donate Now</button> </td></tr>'
+        $('#listing_starts').append(_newRow);
 
     }
-    // namesList.forEach(element => {
-    //     console.log(element);
-    // });
-    // addressList.forEach(element => {
-    //     console.log(element);
-    // });
-    // district.forEach(element => {
-    //     console.log(element);
-    // });
-    // gloves.forEach(element => {
-    //     console.log(element);
-    // });
-    // gowns.forEach(element => {
-    //     console.log(element);
-    // });
-    // masks.forEach(element => {
-    //     console.log(element);
-    // });
-    // ventilators.forEach(element => {
-    //     console.log(element);
-    // });
 
 
+    // oder button ordering 
+    $('[id=orderBtn]').click(function () {
 
+        var $row = jQuery(this).closest('tr');
+        var $columns = $row.find('td');
+
+        var values = "";
+        jQuery.each($columns, function (i, item) {
+            values = values + ' td' + (i + 1) + ': ' + item.innerHTML;
+
+        });
+        console.log(values);
+    })
 
 
 })
-
-// wait(2000)
-// console.log(namesList);
-
-function wait(ms) {
-    var d = new Date();
-    var d2 = null;
-    do { d2 = new Date(); }
-    while (d2 - d < ms);
-}
-
-
-
-
-// names.forEach(element => {
-//     let _newRow = '<tr><td class="text-center">Better Life Hospital Ltd.</td><td class="text-center">Rampura</td><td class="text-center">Dhaka</td><td class="text-center">240</td><td class="text-center">18</td><td class="text-center">350</td><td class="text-center">27</td><td class="text-center"><button class="btn btn-success">Donate Now</button> </td></tr>'
-// });
-// let _newRow = '<tr><td class="text-center">Better Life Hospital Ltd.</td><td class="text-center">Rampura</td><td class="text-center">Dhaka</td><td class="text-center">240</td><td class="text-center">18</td><td class="text-center">350</td><td class="text-center">27</td><td class="text-center"><button class="btn btn-success">Donate Now</button> </td></tr>'
-
-// let row = '<tr><td>'+customName+'</td></tr>'
-// $(".listing_starts").append(_row);
-
-
-
-
-
 
 
 

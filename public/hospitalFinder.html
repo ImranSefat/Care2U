@@ -37,8 +37,8 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard.html">Status</a>
+                <li class="nav-item" id="statusBtn">
+                    <a class="nav-link" href="./dashboard.html" id="status">Status</a>
                 </li>
 
                 <li class="nav-item">
@@ -98,7 +98,7 @@
                 </div>
                 <div class="col-3 text-center">
 
-                    <button class="btn btn-danger">Find Hospitals</button>
+                    <button class="btn btn-danger" type="button">Find Hospitals</button>
 
 
 
@@ -112,6 +112,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col" class="text-center">Hospital Name</th>
+                        <th scope="col" class="text-center">Address</th>
                         <th scope="col" class="text-center">Area</th>
                         <th scope="col" class="text-center">District</th>
                         <th scope="col" class="text-center">Gloves</th>
@@ -123,19 +124,7 @@
 
                     </tr>
                 </thead>
-                <tbody class="listing_starts">
-                    <tr class="listing_row">
-                        <td class="text-center">Better Life Hospital Ltd.</td>
-                        <td class="text-center">Rampura</td>
-                        <td class="text-center">Dhaka</td>
-                        <td class="text-center">240</td>
-                        <td class="text-center">18</td>
-                        <td class="text-center">350</td>
-                        <td class="text-center">27</td>
-
-                        <td class="text-center"><button class="btn btn-success">Donate Now</button> </td>
-                    </tr>
-
+                <tbody id="listing_starts">
 
                 </tbody>
             </table>
