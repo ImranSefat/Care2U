@@ -1,11 +1,13 @@
-$("#status").css("display", "none");
-$("#loginBtn").css("display", "none");
-$("#signUpBtn").css("display", "none");
-$("#signOutBtn").css("display", "none");
+// $("#status").css("display", "none");
+// $("#loginBtn").css("display", "none");
+// $("#signUpBtn").css("display", "none");
+// $("#signOutBtn").css("display", "none");
 $("#signOutBtn").click(function (e) {
     e.preventDefault();
     firebase.auth().signOut();
     // window.location.replace('./index.html')
+
+    alert("You are signed Out")
     location.reload()
 });
 

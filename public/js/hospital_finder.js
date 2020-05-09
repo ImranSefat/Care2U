@@ -477,6 +477,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 $("#signOutBtn").click(function (e) {
     e.preventDefault();
     firebase.auth().signOut();
+    alert("You are signed Out")
     location.reload
 });
 
