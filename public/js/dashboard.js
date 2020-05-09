@@ -15,15 +15,15 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
         if (verified) {
-            console.log(user.email, " is logged In");
+            // console.log(user.email, " is logged In");
             userEmail = user.email
         } else {
             alert("Verify Your Email Address to go to your dashboard")
-            window.location.replace('../index.html')
+            window.location.replace('./index.html')
         }
     } else {
         alert("Sign In to see this page!")
-        window.location.replace('../index.html')
+        window.location.replace('./index.html')
     }
 });
 
@@ -154,7 +154,7 @@ rootRef.on('value', snapshot => {
         $('#listing_starts').empty();
 
     });
-    console.log(donorName, donorAddress, donorContactInfo, dGloves, dGowns, dMasks, dVentilators);
+    // console.log(donorName, donorAddress, donorContactInfo, dGloves, dGowns, dMasks, dVentilators);
 
     for (let index = 0; index < donorName.length; index++) {
         let _newRow = '<tr><td class="text-center">' + donorName[index] + '</td><td class="text-center">' + donorAddress[index] + '</td></td><td class="text-center">' + donorContactInfo[index] + '</td><td class="text-center">' + dGloves[index] + '</td><td class="text-center">' + dGowns[index] + '</td><td class="text-center">' + dMasks[index] + '</td><td class="text-center">' + dVentilators[index] + '</td><td class="text-center">' + dConfirmation[index] + '</td></td><td class="text-center"><button class="btn btn-primary" id="orderBtn" >Confirm</button> </td></tr>'
