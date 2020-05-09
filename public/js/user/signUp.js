@@ -7,18 +7,6 @@ let database = firebase.database()
 
 
 
-// function validateRegNumber(regNumber) {
-
-//     return new Promise((resolve, reject) => {
-//         let regNumberPath = database.ref('hospitalRegNumberList/')
-//         regNumberPath.once('value', snapshot => {
-//             console.log(snapshot.val());
-//         })
-//         resolve("sdasd")
-//     })
-
-// }
-
 // receipent sign up 
 $("#signUpBtnRecp").click(function (e) {
     e.preventDefault();
@@ -106,21 +94,21 @@ $("#signUpBtnRecp").click(function (e) {
 
             promise.then((successMessage) => {
 
-                console.log('After loading');
+
 
                 numbers.forEach(element => {
                     if (regNo == element.Hospital_reg) {
-                        console.log("Registration Number Matched");
+                        // console.log("Registration Number Matched");
                         validatedRegNumber = true
                     }
 
                 });
-                console.log(validatedRegNumber);
+                // console.log(validatedRegNumber);
 
 
                 //if the number is found in the database then run this code
                 if (validatedRegNumber) {
-                    console.log("Registration Number is ", validatedRegNumber);
+                    // console.log("Registration Number is ", validatedRegNumber);
                     if (!invalid) {
                         let dataOfUser = {
                             name: name,
@@ -309,9 +297,9 @@ function createAccount(email, password, accountType, dataOfUser) {
     }).then(function (error) {
 
         if (error == null) {
-            console.log(accountType);
+            // console.log(accountType);
             if (accountType == 'donor') {
-                console.log(accountType);
+                // console.log(accountType);
                 let donor_db_path = database.ref('users/donor')
                 let donorList = database.ref('userList/donorList')
 
@@ -325,7 +313,7 @@ function createAccount(email, password, accountType, dataOfUser) {
                 sendEmailVerification()
             } else {
                 if (accountType == 'recipient') {
-                    console.log(accountType);
+                    // console.log(accountType);
                     let recipient_db_path = database.ref('users/recipient')
                     let recipientList = database.ref('userList/recipientList')
 
