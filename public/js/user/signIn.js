@@ -9,6 +9,9 @@ $("#loginBtn").click(function (e) {
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
+        if (errorCode != null) {
+            console.log(errorCode);
+        }
         console.log(errorCode, errorMessage);
         alert(errorMessage)
 
@@ -33,11 +36,12 @@ firebase.auth().onAuthStateChanged(function (user) {
         let verified = firebase.auth().currentUser.emailVerified
         //console.log(verified);
         if (verified) {
-            window.location.replace('../dashboard.html')
+            console.log(user.email);
+            window.location.replace('./dashboard.html')
         } else {
             alert("Verify Your Email Address to go to your dashboard")
             firebase.auth().signOut();
-            window.location.replace('../login.html')
+            window.location.replace('./login.html')
         }
     } else {
         console.log("None Found.");
