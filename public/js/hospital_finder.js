@@ -250,12 +250,26 @@ rootRef.on('value', snapshot => {
 
             data = values.split("table data")
 
-            console.log(data);
+            // console.log(data);
 
 
 
             $('#infoDonate').css("display", "block");
             // console.log(data);
+            // $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
+            // $("html, body").animate({ scrollTop: $("#infoDonate").scrollTop() }, 500);
+            // $(window).on("load", function (e) { $("html, body").animate({ scrollTop: $(document).height() }, 1000); })
+
+            var objDiv = document.getElementById("infoDonate");
+            objDiv.scrollTop = objDiv.scrollHeight;
+
+
+
+            $('html,body').animate({
+                scrollTop: $("#footer").offset().top
+            },
+                'slow');
+
 
 
             $('#hospitalName').text(
