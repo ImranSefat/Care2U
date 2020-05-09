@@ -90,18 +90,35 @@
 
                 </div>
                 <div class="col-md-3 mt-3">
-                    <input class="form-control" name="District" type="text" placeholder="District">
+                    <div class="form-group col-md-6 ">
+                        <select class="custom-select" id="districtHospital" style="width:auto;">
+                            <option value="0">Choose District</option>
+                            <option value="1">Dhaka </option>
+                            <option value="2">Gazipur </option>
+                            <option value="3">Kishoreganj </option>
+                            <option value="4">Manikganj </option>
+                            <option value="5">Munshiganj </option>
+                            <option value="6">Narayanganj </option>
+                            <option value="7">Narshingdi </option>
+                            <option value="8">Tangail </option>
+                            <option value="9">Faridpur </option>
+                            <option value="10">Tangail </option>
+                            <option value="11">Faridpur </option>
+                            <option value="12">Gopalganj </option>
+                            <option value="13">Madaripur </option>
+                        </select>
+                    </div>
 
                 </div>
                 <div class="col-md-3 mt-3">
                     <!-- <label for="district" class="text-light">Enter district name</label> -->
 
-                    <input class="form-control" name="area" type="text" placeholder="Area">
+                    <input class="form-control" name="area" type="text" placeholder="Area" id="findHospArea">
 
                 </div>
                 <div class="col-md-3 mt-3 text-center ">
 
-                    <button class="btn btn-danger" type="button">Find Hospitals</button>
+                    <button class="btn btn-danger" type="button" id="findHosp">Find Hospitals</button>
 
 
 

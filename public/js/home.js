@@ -31,6 +31,8 @@ rootRef.on('value', snapshot => {
     // console.log(userIsRecipient);
     if (userIsRecipient) {
         $("#status").css("display", "block");
+    } else {
+        //console.log("User not found ");
     }
 
 })
