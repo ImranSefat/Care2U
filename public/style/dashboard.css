@@ -8,6 +8,9 @@ header,
     padding: 0px;
     overflow-x: hidden; 
 }
+html{
+    scroll-behavior: smooth;
+}
 
 
 .head{
