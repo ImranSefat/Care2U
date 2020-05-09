@@ -243,39 +243,42 @@ function createAccount(email, password, accountType, dataOfUser) {
 
     }).then(function (error) {
 
-
-        console.log(accountType);
-        if (accountType == 'donor') {
+        if (error == null) {
             console.log(accountType);
-            let donor_db_path = database.ref('users/donor')
-            let donorList = database.ref('userList/donorList')
-
-            donor_db_path.push(dataOfUser)
-            let listData = {
-                name: dataOfUser.name,
-                email: dataOfUser.email
-            }
-            donorList.push(listData)
-
-            sendEmailVerification()
-        } else {
-            if (accountType == 'recipient') {
+            if (accountType == 'donor') {
                 console.log(accountType);
-                let recipient_db_path = database.ref('users/recipient')
-                let recipientList = database.ref('userList/recipientList')
+                let donor_db_path = database.ref('users/donor')
+                let donorList = database.ref('userList/donorList')
 
-                recipient_db_path.push(dataOfUser)
+                donor_db_path.push(dataOfUser)
                 let listData = {
                     name: dataOfUser.name,
                     email: dataOfUser.email
                 }
-                recipientList.push(listData)
+                donorList.push(listData)
 
                 sendEmailVerification()
+            } else {
+                if (accountType == 'recipient') {
+                    console.log(accountType);
+                    let recipient_db_path = database.ref('users/recipient')
+                    let recipientList = database.ref('userList/recipientList')
+
+                    recipient_db_path.push(dataOfUser)
+                    let listData = {
+                        name: dataOfUser.name,
+                        email: dataOfUser.email
+                    }
+                    recipientList.push(listData)
+
+                    sendEmailVerification()
+                }
             }
+            firebase.auth().signOut();
+            location.reload
+        } else {
+            alert(error);
         }
-        firebase.auth().signOut();
-        location.reload
 
 
 
