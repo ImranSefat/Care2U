@@ -43,7 +43,7 @@ function fillData() {
                 data: patientRecord,
                 // data: dataFromAPI,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 99, 0, 0.2)',
 
                 ],
                 borderColor: [
@@ -80,7 +80,8 @@ function fillData() {
                 data: recoveredData,
                 // data: dataFromAPI,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
+                    // rgb(52, 169, 63)
+                    'rgba(52, 169, 63, 0.2)',
 
                 ],
                 borderColor: [
