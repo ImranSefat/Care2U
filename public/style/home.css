@@ -1,8 +1,6 @@
 html,
 body,
-header,
-#intro{
-    height: 100%;
+header{
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -13,6 +11,8 @@ html{
 }
 
 #intro{
+    background-position: 50% 50%;
+    height: 100%;
     background: url("../img/bg.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;

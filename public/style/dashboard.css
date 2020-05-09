@@ -11,6 +11,7 @@ header,
 
 
 .head{
+    background-position: 50% 50%;
     background: url("../img/bg2.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;

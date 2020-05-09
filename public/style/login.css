@@ -1,16 +1,20 @@
 html,
 body,
-header,
-#intro{
-    height: 100%;
+header{
+    height: 100vh;
     width: 100%;
     margin: 0px;
     padding: 0px;
     overflow-x: hidden; 
 }
 
+html{
+    scroll-behavior: smooth;
+}
 
 #intro{
+    height: 100%;
+    background-position: 50% 50%;
     background: url("../img/bg1.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
