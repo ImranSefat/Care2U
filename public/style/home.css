@@ -13,7 +13,7 @@ html{
 #intro{
     background-position: 50% 50%;
     height: 100%;
-    background: url("../img/bg.png") no-repeat center center fixed;
+    background: url("../img/finder_bg.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -38,7 +38,7 @@ html{
 
 #intro2{
     background-position: 50% 50%;
-    background: url("../img/bg.png") no-repeat center center fixed;
+    background: url("../img/finder_bg.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
