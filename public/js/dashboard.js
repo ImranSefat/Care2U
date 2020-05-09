@@ -157,7 +157,7 @@ rootRef.on('value', snapshot => {
     console.log(donorName, donorAddress, donorContactInfo, dGloves, dGowns, dMasks, dVentilators);
 
     for (let index = 0; index < donorName.length; index++) {
-        let _newRow = '<tr><td class="text-center">' + donorName[index] + '</td><td class="text-center">' + donorAddress[index] + '</td></td><td class="text-center">' + donorContactInfo[index] + '</td><td class="text-center">' + dGloves[index] + '</td><td class="text-center">' + dGowns[index] + '</td><td class="text-center">' + dMasks[index] + '</td><td class="text-center">' + dVentilators[index] + '</td><td class="text-center">' + dConfirmation[index] + '</td></td><td class="text-center"><button class="btn btn-success" id="orderBtn" >Donate Now</button> </td></tr>'
+        let _newRow = '<tr><td class="text-center">' + donorName[index] + '</td><td class="text-center">' + donorAddress[index] + '</td></td><td class="text-center">' + donorContactInfo[index] + '</td><td class="text-center">' + dGloves[index] + '</td><td class="text-center">' + dGowns[index] + '</td><td class="text-center">' + dMasks[index] + '</td><td class="text-center">' + dVentilators[index] + '</td><td class="text-center">' + dConfirmation[index] + '</td></td><td class="text-center"><button class="btn btn-primary" id="orderBtn" >Confirm</button> </td></tr>'
         $('#listing_starts').append(_newRow);
 
     }
