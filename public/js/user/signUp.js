@@ -7,6 +7,18 @@ let database = firebase.database()
 
 
 
+// function validateRegNumber(regNumber) {
+
+//     return new Promise((resolve, reject) => {
+//         let regNumberPath = database.ref('hospitalRegNumberList/')
+//         regNumberPath.once('value', snapshot => {
+//             console.log(snapshot.val());
+//         })
+//         resolve("sdasd")
+//     })
+
+// }
+
 // receipent sign up 
 $("#signUpBtnRecp").click(function (e) {
     e.preventDefault();
@@ -27,7 +39,9 @@ $("#signUpBtnRecp").click(function (e) {
     // email address validation 
     let valid = validateEmail(email)
 
-    let accountType = 'recipient'
+
+
+
 
 
 
@@ -46,11 +60,11 @@ $("#signUpBtnRecp").click(function (e) {
                 alert("Phone Number Cannot be less than 11 digits")
                 invalid = true
             }
-            if (regNo.length < 8) {
-                alert("Registration Number Cannot be less than 8 digits")
+            if (regNo.length < 8 || regNo.length > 8) {
+                alert("Registration Number is of 8 digits")
                 invalid = true
             }
-            if (nidNumber.length === 10 || nidNumber.length === 13) {
+            if (nidNumber.length !== 10 && nidNumber.length !== 13) {
                 alert("Invalid NID Number")
                 invalid = true
             }
@@ -66,46 +80,97 @@ $("#signUpBtnRecp").click(function (e) {
                 alert("Choose a District")
                 invalid = true
             }
-            if (!invalid) {
-                let dataOfUser = {
-                    name: name,
-                    phoneNumber: phoneNumber,
-                    email: email,
-                    regNo: regNo,
-                    nidNumber,
-                    address: address,
-                    area: area,
-                    district: district,
-                    donorList: [
-                        {
-                            item: {
+
+
+            //registration number checking 
+
+
+            regNo = regNo.toUpperCase()
+            let validatedRegNumber = false
+
+
+            let numbers = ''
+            let regNumberPath = database.ref('hospitalRegNumberList/')
+            regNumberPath.once('value', snapshot => {
+                d = snapshot.val()
+                numbers = Object.values(d)
+
+            })
+
+            //waiting for 1.5s to checking the regNumber
+            let promise = new Promise((resolve, reject) => {
+                setTimeout(function () {
+                    resolve()
+                }, 1500)
+            })
+
+            promise.then((successMessage) => {
+
+                console.log('After loading');
+
+                numbers.forEach(element => {
+                    if (regNo == element.Hospital_reg) {
+                        console.log("Registration Number Matched");
+                        validatedRegNumber = true
+                    }
+
+                });
+                console.log(validatedRegNumber);
+
+
+                //if the number is found in the database then run this code
+                if (validatedRegNumber) {
+                    console.log("Registration Number is ", validatedRegNumber);
+                    if (!invalid) {
+                        let dataOfUser = {
+                            name: name,
+                            phoneNumber: phoneNumber,
+                            email: email,
+                            regNo: regNo,
+                            nidNumber,
+                            address: address,
+                            area: area,
+                            district: district,
+                            donorList: [
+                                {
+                                    item: {
+                                        gloves: 0,
+                                        gowns: 0,
+                                        masks: 0,
+                                        ventilators: 0
+                                    },
+                                    name: "who donated"
+                                }
+                            ]
+                            ,
+                            itemRequested: {
+                                gloves: 0,
+                                gowns: 0,
+                                masks: 0,
+                                ventilators: 0,
+                                requested: false
+                            },
+                            itemsAvailable: {
                                 gloves: 0,
                                 gowns: 0,
                                 masks: 0,
                                 ventilators: 0
                             },
-                            name: "who donated"
                         }
-                    ]
-                    ,
-                    itemRequested: {
-                        gloves: 0,
-                        gowns: 0,
-                        masks: 0,
-                        ventilators: 0,
-                        requested: false
-                    },
-                    itemsAvailable: {
-                        gloves: 0,
-                        gowns: 0,
-                        masks: 0,
-                        ventilators: 0
-                    },
+                        let accountType = 'recipient'
+                        createAccount(email, password, accountType, dataOfUser)
+
+
+                    }
+                } else {
+                    alert("Invalid Registration Number")
                 }
-                createAccount(email, password, accountType, dataOfUser)
 
 
-            }
+
+            })
+
+
 
 
         } else {
