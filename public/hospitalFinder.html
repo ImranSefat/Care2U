@@ -17,7 +17,7 @@
     <script src="https://kit.fontawesome.com/53e5e12b26.js" crossorigin="anonymous"></script>
 
     <!-- lottie-player -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
@@ -84,22 +84,22 @@
         </div>
         <div class="container mb-5">
             <div class="row">
-                <div class="col-3">
+                <div class="col-md-3 mt-3">
                     <!-- <label for="district" class="text-light">Enter district name</label> -->
                     <input class="form-control" name="district" type="text" value="Dhaka" readonly>
 
                 </div>
-                <div class="col-3">
+                <div class="col-md-3 mt-3">
                     <input class="form-control" name="District" type="text" placeholder="District">
 
                 </div>
-                <div class="col-3">
+                <div class="col-md-3 mt-3">
                     <!-- <label for="district" class="text-light">Enter district name</label> -->
 
                     <input class="form-control" name="area" type="text" placeholder="Area">
 
                 </div>
-                <div class="col-3 text-center">
+                <div class="col-md-3 mt-3 text-center ">
 
                     <button class="btn btn-danger" type="button">Find Hospitals</button>
 
@@ -109,33 +109,105 @@
             </div>
         </div>
 
+        <div class="bg-dark">
+            <div class="container table-responsive">
+                <table class="table table-striped table-dark table-hover mt-4">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" class="text-center">Hospital Name</th>
+                            <th scope="col" class="text-center">Address</th>
+                            <th scope="col" class="text-center">Area</th>
+                            <th scope="col" class="text-center">District</th>
+                            <th scope="col" class="text-center">Gloves</th>
+                            <th scope="col" class="text-center">Isolation Gowns</th>
+                            <th scope="col" class="text-center">Masks</th>
+                            <th scope="col" class="text-center">Ventilators</th>
 
-        <div class="container table-responsive">
-            <table class="table table-striped table-dark table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col" class="text-center">Hospital Name</th>
-                        <th scope="col" class="text-center">Address</th>
-                        <th scope="col" class="text-center">Area</th>
-                        <th scope="col" class="text-center">District</th>
-                        <th scope="col" class="text-center">Gloves</th>
-                        <th scope="col" class="text-center">Isolation Gowns</th>
-                        <th scope="col" class="text-center">Masks</th>
-                        <th scope="col" class="text-center">Ventilators</th>
+                            <th scope="col" class="text-center">Donate</th>
 
-                        <th scope="col" class="text-center">Donate</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listing_starts">
 
-                    </tr>
-                </thead>
-                <tbody id="listing_starts">
-
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
 
+        <!-- User will see the contact info  -->
+        <div class="bg-dark">
+            <div class="container pt-3 pb-5" id="hospital_info">
+                <div class="display-3 text-light text-center">Contact Info</div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="h3 text-center text-light pt-4">Confirm Your Donation</div>
+                        <div class="h5 text-center text-danger">Don't give more than the requested items</div>
+
+                        <div class="container bg-light rounded p-4">
+                            <div class="h4  mt-3">Hospital Name : Better Life Hospital Ltd.</div>
+                            <div class="h5  mt-3">Address : 01 East Rampura,D.I.T Road,Dhaka -1219</div>
+                            <div class="h5  mt-3"">Contact Info : 01703180525</div>  
+                        </div>
+                        
+    
+                        <div class=" h4 text-light text-center mt-5">Enter the number of items that you want to donate
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-6">
+                                    <input type=" text" placeholder="Gloves" class="form-control" />
+                                </div>
+                                <div class="col-6">
+                                    <input type=" text" placeholder="Isolation Gowns" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <input type=" text" placeholder="Masks" class="form-control" />
+                                </div>
+                                <div class="col-6">
+                                    <input type=" text" placeholder="Ventilators" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="h4 text-light text-center mt-4">Only confirm if you really want to donate</div>
+                            <div class="text-center mt-3">
+                                <div class="btn btn-success">Donate Now</div>
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_eZc0Fu.json"
+                                background="transparent" speed="1" loop autoplay>
+                            </lottie-player>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-primary py-3">
+
+                <!--Section: Content-->
+                <section class=" px-5 px-md-5 py-1 text-center text-light bg-primary z-depth-1 ">
+
+                    <h3 class="">Made with <i class="fas fa-heart red-text mx-1"></i> by Eleven Squared Team</h3>
+                    <!-- Copyright -->
+                    <div class="footer-copyright text-center text-warning ">©2020 Copyright:
+                        Eleven Squared Team
+                    </div>
+                    <!-- Copyright -->
+                </section>
+                <!--Section: Content-->
+
+
+            </div>
+
+        </div>
     </div>
-    </div>
+
     <!-- banner -->
 
 
@@ -145,22 +217,6 @@
 
 
 
-    <div class="bg-dark py-3">
-
-        <!--Section: Content-->
-        <section class=" px-5 px-md-5 py-1 text-center text-light bg-dark z-depth-1 ">
-
-            <h3 class="">Made with <i class="fas fa-heart red-text mx-1"></i> by Eleven Squared Team</h3>
-            <!-- Copyright -->
-            <div class="footer-copyright text-center text-warning ">©2020 Copyright:
-                Eleven Squared Team
-            </div>
-            <!-- Copyright -->
-        </section>
-        <!--Section: Content-->
-
-
-    </div>
 
 
 
@@ -187,6 +243,7 @@
         crossorigin="anonymous"></script> -->
     <script src="./js/bootstrap/bootstrap.min.js"></script>
 
+    <!-- lotti animation  -->
 
     <!-- firebase -->
 
