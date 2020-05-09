@@ -49,13 +49,11 @@ let requiredGowns = 0
 let requiredMasks = 0
 let requiredVentilators = 0
 
-
-
+//all the donations 
+let allDonations = []
 
 rootRef.on('value', snapshot => {
-
-
-
+    allDonations = []
     let hospitals = snapshot.val()
 
     let keys = Object.keys(hospitals)
@@ -74,6 +72,10 @@ rootRef.on('value', snapshot => {
             availableGowns = (hospitals[element].itemsAvailable.gowns)
             availableMasks = (hospitals[element].itemsAvailable.masks)
             availableVentilators = (hospitals[element].itemsAvailable.ventilators)
+
+            //collecting the donorlist
+            allDonations.push(hospitals[element].donorList)
+
         }
 
 
@@ -95,6 +97,70 @@ rootRef.on('value', snapshot => {
     $('#requestedMasks').text("Requested : " + requiredMasks)
     $('#requestedVentilators').text("Requested : " + requiredVentilators)
 
+    //taking all the donations
+    let donorName = []
+    let donorAddress = []
+    let donorContactInfo = []
+
+    let dGloves = []
+    let dGowns = []
+    let dMasks = []
+    let dVentilators = []
+    let dConfirmation = []
+
+    allDonations.forEach(element => {
+        // console.log(element);
+        let d = Object.values(element)
+        d.forEach(elem => {
+            donorName.push(elem.donorInfo.name)
+            donorAddress.push(elem.donorInfo.address)
+            donorContactInfo.push(elem.donorInfo.phoneNumber)
+
+            if (elem.confirmed == false) {
+                dConfirmation.push("Not Confirmed")
+            } else {
+                dConfirmation.push("Confirmed")
+            }
+
+
+            if (elem.itemInfo.gloves == "") {
+                dGloves.push("0")
+            } else {
+                dGloves.push(elem.itemInfo.gloves)
+            }
+
+
+            if (elem.itemInfo.gowns == "") {
+                dGowns.push("0")
+            } else {
+                dGowns.push(elem.itemInfo.gowns)
+            }
+
+
+            if (elem.itemInfo.masks == "") {
+                dMasks.push("0")
+            } else {
+                dMasks.push(elem.itemInfo.masks)
+            }
+
+
+            if (elem.itemInfo.ventilators == "") {
+                dVentilators.push("0")
+            } else {
+                dVentilators.push(elem.itemInfo.ventilators)
+            }
+
+        });
+        $('#listing_starts').empty();
+
+    });
+    console.log(donorName, donorAddress, donorContactInfo, dGloves, dGowns, dMasks, dVentilators);
+
+    for (let index = 0; index < donorName.length; index++) {
+        let _newRow = '<tr><td class="text-center">' + donorName[index] + '</td><td class="text-center">' + donorAddress[index] + '</td></td><td class="text-center">' + donorContactInfo[index] + '</td><td class="text-center">' + dGloves[index] + '</td><td class="text-center">' + dGowns[index] + '</td><td class="text-center">' + dMasks[index] + '</td><td class="text-center">' + dVentilators[index] + '</td><td class="text-center">' + dConfirmation[index] + '</td></td><td class="text-center"><button class="btn btn-success" id="orderBtn" >Donate Now</button> </td></tr>'
+        $('#listing_starts').append(_newRow);
+
+    }
 
 })
 
