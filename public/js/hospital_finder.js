@@ -12,6 +12,7 @@ let requested = false
 let namesList = []
 let addressList = []
 let area = []
+let contactInfoList = []
 let district = []
 let gloves = []
 let gowns = []
@@ -66,9 +67,9 @@ function update(findArea, findDistrict) {
     rootRef.once('value', snapshot => {
 
         requested = false
-
         namesList = []
         addressList = []
+        contactInfoList
         area = []
         district = []
         gloves = []
@@ -94,6 +95,7 @@ function update(findArea, findDistrict) {
                 if (requested) {
                     namesList.push(hospitals[element].name)
                     addressList.push(hospitals[element].address)
+                    contactInfoList.push(hospitals[element].phoneNumber)
 
                     area.push(hospitals[element].area)
                     district.push(hospitals[element].district)
@@ -117,7 +119,7 @@ function update(findArea, findDistrict) {
         });
 
         for (let index = 0; index < namesList.length; index++) {
-            let _newRow = '<tr><td class="text-center">' + namesList[index] + '</td><td class="text-center">' + addressList[index] + '</td><td class="text-center">' + area[index] + '</td><td class="text-center">' + district[index] + '</td><td class="text-center">' + gloves[index] + '</td><td class="text-center">' + gowns[index] + '</td><td class="text-center">' + masks[index] + '</td></td><td class="text-center">' + ventilators[index] + '</td><td class="text-center"><button class="btn btn-success" id="orderBtn" >Donate Now</button> </td></tr>'
+            let _newRow = '<tr><td class="text-center">' + namesList[index] + '</td><td class="text-center">' + addressList[index] + '</td></td><td class="text-center">' + contactInfoList[index] + '</td><td class="text-center">' + area[index] + '</td><td class="text-center">' + district[index] + '</td><td class="text-center">' + gloves[index] + '</td><td class="text-center">' + gowns[index] + '</td><td class="text-center">' + masks[index] + '</td></td><td class="text-center">' + ventilators[index] + '</td><td class="text-center"><button class="btn btn-success" id="orderBtn" >Donate Now</button> </td></tr>'
             $('#listing_starts').append(_newRow);
 
         }
@@ -148,6 +150,19 @@ function update(findArea, findDistrict) {
                 // console.log(data);
 
 
+
+                $('#hospitalName').text(
+                    $('#hospitalName').text() + data[1]
+                )
+                $('#hospitalAddress').text(
+                    $('#hospitalAddress').text() + data[2]
+                )
+                $('#hospitalContactInfo').text(
+                    $('#hospitalContactInfo').text() + data[3]
+                )
+
+
+
             } else {
                 alert("You have to login to donate")
             }
@@ -163,25 +178,13 @@ function update(findArea, findDistrict) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 rootRef.on('value', snapshot => {
 
     requested = false
 
     namesList = []
     addressList = []
+    contactInfoList = []
     area = []
     district = []
     gloves = []
@@ -199,6 +202,7 @@ rootRef.on('value', snapshot => {
         if (requested) {
             namesList.push(hospitals[element].name)
             addressList.push(hospitals[element].address)
+            contactInfoList.push(hospitals[element].phoneNumber)
 
             area.push(hospitals[element].area)
             district.push(hospitals[element].district)
@@ -221,7 +225,7 @@ rootRef.on('value', snapshot => {
     });
 
     for (let index = 0; index < namesList.length; index++) {
-        let _newRow = '<tr><td class="text-center">' + namesList[index] + '</td><td class="text-center">' + addressList[index] + '</td><td class="text-center">' + area[index] + '</td><td class="text-center">' + district[index] + '</td><td class="text-center">' + gloves[index] + '</td><td class="text-center">' + gowns[index] + '</td><td class="text-center">' + masks[index] + '</td></td><td class="text-center">' + ventilators[index] + '</td><td class="text-center"><button class="btn btn-success" id="orderBtn" >Donate Now</button> </td></tr>'
+        let _newRow = '<tr><td class="text-center">' + namesList[index] + '</td><td class="text-center">' + addressList[index] + '</td></td><td class="text-center">' + contactInfoList[index] + '</td><td class="text-center">' + area[index] + '</td><td class="text-center">' + district[index] + '</td><td class="text-center">' + gloves[index] + '</td><td class="text-center">' + gowns[index] + '</td><td class="text-center">' + masks[index] + '</td></td><td class="text-center">' + ventilators[index] + '</td><td class="text-center"><button class="btn btn-success" id="orderBtn" >Donate Now</button> </td></tr>'
         $('#listing_starts').append(_newRow);
 
     }
@@ -246,10 +250,23 @@ rootRef.on('value', snapshot => {
 
             data = values.split("table data")
 
+            console.log(data);
 
-            //console.log(data);
+
+
             $('#infoDonate').css("display", "block");
             // console.log(data);
+
+
+            $('#hospitalName').text(
+                $('#hospitalName').text() + data[1]
+            )
+            $('#hospitalAddress').text(
+                $('#hospitalAddress').text() + data[2]
+            )
+            $('#hospitalContactInfo').text(
+                $('#hospitalContactInfo').text() + data[3]
+            )
 
 
         } else {
@@ -262,7 +279,8 @@ rootRef.on('value', snapshot => {
 
 })
 $('#donateNowBtn').click(function () {
-    //alert('asdasd');
+
+
     let gloves = $('#inputGloves').val()
     let gowns = $('#inputGowns').val()
     let masks = $('#inputMasks').val()
@@ -374,7 +392,7 @@ function donating() {
                 // console.log(donorInfo);
                 //console.log(donorInfo.email);
                 path.push(allData)
-
+                alert('Donation Successful');
             }
         })
     })
