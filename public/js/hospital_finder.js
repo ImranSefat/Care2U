@@ -2,7 +2,7 @@ $("#status").css("display", "none");
 $("#loginBtn").css("display", "none");
 $("#signUpBtn").css("display", "none");
 $("#signOutBtn").css("display", "none");
-
+$('#infoDonate').css("display", "none");
 //initializing database
 let database = firebase.database()
 let rootRef = database.ref('users/recipient')
@@ -18,8 +18,8 @@ let gowns = []
 let masks = []
 let ventilators = []
 
-
-
+let data = ''
+let values = ''
 
 rootRef.on('value', snapshot => {
 
@@ -75,18 +75,86 @@ rootRef.on('value', snapshot => {
     // oder button ordering 
     $('[id=orderBtn]').click(function () {
 
-        var $row = jQuery(this).closest('tr');
-        var $columns = $row.find('td');
+        let userLoggedIn = checkingLoggedIn()
 
-        var values = "";
-        jQuery.each($columns, function (i, item) {
-            values = values + ' td' + (i + 1) + ': ' + item.innerHTML;
+        // console.log(userLoggedIn);
+        if (userLoggedIn) {
 
-        });
-        console.log(values);
+            var $row = jQuery(this).closest('tr');
+            var $columns = $row.find('td');
+
+            values = "";
+            jQuery.each($columns, function (i, item) {
+                values = values + 'table data' + item.innerHTML;
+            });
+
+            data = values.split("table data")
+
+
+            //console.log(data);
+            $('#infoDonate').css("display", "block");
+            console.log(data);
+
+
+        } else {
+            alert("You have to login to donate")
+        }
+
+    })
+
+    $('#donateNowBtn').click(function () {
+        //alert('asdasd');
+        let gloves = $('#inputGloves').val()
+        let gowns = $('#inputGowns').val()
+        let masks = $('#inputMasks').val()
+        let ventilators = $('#inputVentilators').val()
+
+        let eGloves = false
+        let eGowns = false
+        let eMask = false
+        let eVentilators = false
+
+        if (gloves != 0) {
+            eGloves = true
+        }
+        if (gowns != 0) {
+            eGowns = true
+        }
+        if (masks != 0) {
+            eMask = true
+        }
+        if (ventilators != 0) {
+            eVentilators = true
+        }
+
+
+        let filled = eGloves || eGowns || eMask || eVentilators
+
+
+        if (filled) {
+            console.log(data);
+            console.log('gloves: ', gloves, 'gowns: ', gowns, 'masks: ', masks, 'ventilators: ', ventilators);
+        } else {
+            alert("Please fill any of the items")
+        }
+
+
     })
 
 })
+
+//checking if user is logged in to donate 
+
+function checkingLoggedIn() {
+    let user = firebase.auth().currentUser
+    if (user) {
+        return true
+    } else {
+        return false
+    }
+
+}
+
 
 
 
