@@ -16,26 +16,6 @@ let database = firebase.database()
 let rootRef = database.ref('userList/recipientList')
 let allHospitalEmails = []
 
-rootRef.on('value', snapshot => {
-    allHospitalEmails = []
-    let data = snapshot.val()
-    let keys = Object.keys(snapshot.val())
-
-    keys.forEach(element => {
-        allHospitalEmails.push(data[element].email)
-        // console.log(allHospitalEmails);
-    });
-    let user = firebase.auth().currentUser
-    let currentUserEmail = user.email
-    let userIsRecipient = allHospitalEmails.includes(currentUserEmail)
-    // console.log(userIsRecipient);
-    if (userIsRecipient) {
-        $("#status").css("display", "block");
-    } else {
-        //console.log("User not found ");
-    }
-
-})
 
 
 
@@ -43,6 +23,28 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         console.log(user.email, "is signed in.");
         $("#signOutBtn").css("display", "block");
+
+
+        rootRef.on('value', snapshot => {
+            allHospitalEmails = []
+            let data = snapshot.val()
+            let keys = Object.keys(snapshot.val())
+
+            keys.forEach(element => {
+                allHospitalEmails.push(data[element].email)
+                // console.log(allHospitalEmails);
+            });
+            let user = firebase.auth().currentUser
+            let currentUserEmail = user.email
+            let userIsRecipient = allHospitalEmails.includes(currentUserEmail)
+            // console.log(userIsRecipient);
+            if (userIsRecipient) {
+                $("#status").css("display", "block");
+            } else {
+                //console.log("User not found ");
+            }
+
+        })
 
 
     } else {
