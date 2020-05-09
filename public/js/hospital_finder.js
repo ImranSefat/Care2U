@@ -39,15 +39,14 @@ $('#findHosp').click(function (e) {
         alert("Choose district")
         empty = true
     }
-    if (findArea == '') {
-        alert("Choose Area")
-        empty = true
-    }
     if (!empty) {
         // console.log("Data filled");
         // console.log(findDistrict, findArea);
+
         findArea.toLocaleLowerCase
 
+        // console.log(findDistrict);
+        // console.log(findArea);
         update(findArea, findDistrict)
         $("#districtHospital").val(0);
         $("#findHospArea").val('')
@@ -64,7 +63,7 @@ $('#findHosp').click(function (e) {
 
 function update(findArea, findDistrict) {
 
-    rootRef.once('value', snapshot => {
+    rootRef.on('value', snapshot => {
 
         requested = false
         namesList = []
@@ -91,94 +90,127 @@ function update(findArea, findDistrict) {
             findArea = findArea.toLocaleLowerCase()
 
 
-            if (hospitals[element].district == findDistrict && tempArea == findArea) {
+
+            if (findArea == '') {
+
                 if (requested) {
-                    namesList.push(hospitals[element].name)
-                    addressList.push(hospitals[element].address)
-                    contactInfoList.push(hospitals[element].phoneNumber)
+                    if ((hospitals[element].district == findDistrict)) {
+                        namesList.push(hospitals[element].name)
+                        addressList.push(hospitals[element].address)
+                        contactInfoList.push(hospitals[element].phoneNumber)
 
-                    area.push(hospitals[element].area)
-                    district.push(hospitals[element].district)
+                        area.push(hospitals[element].area)
+                        district.push(hospitals[element].district)
 
 
-                    gloves.push(hospitals[element].itemRequested.gloves)
-                    gowns.push(hospitals[element].itemRequested.gowns)
-                    masks.push(hospitals[element].itemRequested.masks)
-                    ventilators.push(hospitals[element].itemRequested.ventilators)
+                        gloves.push(hospitals[element].itemRequested.gloves)
+                        gowns.push(hospitals[element].itemRequested.gowns)
+                        masks.push(hospitals[element].itemRequested.masks)
+                        ventilators.push(hospitals[element].itemRequested.ventilators)
+
+
+
+                    }
                 }
-
-            }
-            $('#listing_starts').empty();
-
-
-
-
-
-
-
-        });
-
-        for (let index = 0; index < namesList.length; index++) {
-            let _newRow = '<tr><td class="text-center">' + namesList[index] + '</td><td class="text-center">' + addressList[index] + '</td></td><td class="text-center">' + contactInfoList[index] + '</td><td class="text-center">' + area[index] + '</td><td class="text-center">' + district[index] + '</td><td class="text-center">' + gloves[index] + '</td><td class="text-center">' + gowns[index] + '</td><td class="text-center">' + masks[index] + '</td></td><td class="text-center">' + ventilators[index] + '</td><td class="text-center"><button class="btn btn-success" id="orderBtn" >Donate Now</button> </td></tr>'
-            $('#listing_starts').append(_newRow);
-
-        }
-
-
-        // oder button ordering 
-        $('[id=orderBtn]').click(function () {
-
-            let userLoggedIn = checkingLoggedIn()
-
-            // console.log(userLoggedIn);
-            if (userLoggedIn) {
-                //gettingDonorData()
-
-                var $row = jQuery(this).closest('tr');
-                var $columns = $row.find('td');
-
-                values = "";
-                jQuery.each($columns, function (i, item) {
-                    values = values + 'table data' + item.innerHTML;
-                });
-
-                data = values.split("table data")
-
-
-                //console.log(data);
-                $('#infoDonate').css("display", "block");
-                // console.log(data);
-
-
-
-                $('#hospitalName').text(
-                    $('#hospitalName').text() + data[1]
-                )
-                $('#hospitalAddress').text(
-                    $('#hospitalAddress').text() + data[2]
-                )
-                $('#hospitalContactInfo').text(
-                    $('#hospitalContactInfo').text() + data[3]
-                )
-
-
-
             } else {
-                alert("You have to login to donate")
+                if (requested) {
+                    if ((tempArea == findArea)) {
+
+                        namesList.push(hospitals[element].name)
+                        addressList.push(hospitals[element].address)
+                        contactInfoList.push(hospitals[element].phoneNumber)
+
+                        area.push(hospitals[element].area)
+                        district.push(hospitals[element].district)
+
+
+                        gloves.push(hospitals[element].itemRequested.gloves)
+                        gowns.push(hospitals[element].itemRequested.gowns)
+                        masks.push(hospitals[element].itemRequested.masks)
+                        ventilators.push(hospitals[element].itemRequested.ventilators)
+
+
+                    }
+
+                }
             }
+
+
 
         })
 
 
 
+
+
+        $('#listing_starts').empty();
+
+
+    });
+
+    for (let index = 0; index < namesList.length; index++) {
+        let _newRow = '<tr><td class="text-center">' + namesList[index] + '</td><td class="text-center">' + addressList[index] + '</td></td><td class="text-center">' + contactInfoList[index] + '</td><td class="text-center">' + area[index] + '</td><td class="text-center">' + district[index] + '</td><td class="text-center">' + gloves[index] + '</td><td class="text-center">' + gowns[index] + '</td><td class="text-center">' + masks[index] + '</td></td><td class="text-center">' + ventilators[index] + '</td><td class="text-center"><button class="btn btn-success" id="orderBtn" >Donate Now</button> </td></tr>'
+        $('#listing_starts').append(_newRow);
+
+    }
+
+
+    // oder button ordering 
+    $('[id=orderBtn]').click(function () {
+
+        let userLoggedIn = checkingLoggedIn()
+
+        // console.log(userLoggedIn);
+        if (userLoggedIn) {
+            //gettingDonorData()
+
+            var $row = jQuery(this).closest('tr');
+            var $columns = $row.find('td');
+
+            values = "";
+            jQuery.each($columns, function (i, item) {
+                values = values + 'table data' + item.innerHTML;
+            });
+
+            data = values.split("table data")
+
+
+            //console.log(data);
+            $('#infoDonate').css("display", "block");
+            // console.log(data);
+
+
+
+            $('#hospitalName').text(
+                $('#hospitalName').text() + data[1]
+            )
+            $('#hospitalAddress').text(
+                $('#hospitalAddress').text() + data[2]
+            )
+            $('#hospitalContactInfo').text(
+                $('#hospitalContactInfo').text() + data[3]
+            )
+
+
+
+        } else {
+            alert("You have to login to donate")
+        }
+
     })
+
+
+
 }
 
 
 
 
 
+
 rootRef.on('value', snapshot => {
+
+    $('#findHosp').css("display", "block");
 
     requested = false
 
@@ -250,15 +282,8 @@ rootRef.on('value', snapshot => {
 
             data = values.split("table data")
 
-            // console.log(data);
-
-
-
             $('#infoDonate').css("display", "block");
-            // console.log(data);
-            // $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
-            // $("html, body").animate({ scrollTop: $("#infoDonate").scrollTop() }, 500);
-            // $(window).on("load", function (e) { $("html, body").animate({ scrollTop: $(document).height() }, 1000); })
+
 
             var objDiv = document.getElementById("infoDonate");
             objDiv.scrollTop = objDiv.scrollHeight;
@@ -273,13 +298,13 @@ rootRef.on('value', snapshot => {
 
 
             $('#hospitalName').text(
-                $('#hospitalName').text() + data[1]
+                'Hospital Name: ' + data[1]
             )
             $('#hospitalAddress').text(
-                $('#hospitalAddress').text() + data[2]
+                'Address: ' + data[2]
             )
             $('#hospitalContactInfo').text(
-                $('#hospitalContactInfo').text() + data[3]
+                'Contact Info: ' + data[3]
             )
 
 
