@@ -65,9 +65,6 @@ function fillData() {
 
         }
     });
-    // dataFromAPI.forEach(element => {
-    //     console.log(element);
-    // });
 
     // recovered Chart
 
