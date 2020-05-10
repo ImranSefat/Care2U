@@ -197,7 +197,6 @@ rootRef.on('value', snapshot => {
         });
 
         d.forEach(elem => {
-
             donorName.push(elem.donorInfo.name)
             donorAddress.push(elem.donorInfo.address)
             donorContactInfo.push(elem.donorInfo.phoneNumber)

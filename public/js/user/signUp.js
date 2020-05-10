@@ -80,6 +80,7 @@ $("#signUpBtnRecp").click(function (e) {
 
 
             let numbers = ''
+
             let regNumberPath = database.ref('hospitalRegNumberList/')
             regNumberPath.once('value', snapshot => {
                 d = snapshot.val()
@@ -87,11 +88,12 @@ $("#signUpBtnRecp").click(function (e) {
 
             })
 
-            //waiting for 1.5s to checking the regNumber
+
+            //waiting for 1.7s to checking the regNumber
             let promise = new Promise((resolve, reject) => {
                 setTimeout(function () {
                     resolve()
-                }, 1500)
+                }, 1700)
             })
 
             promise.then((successMessage) => {
@@ -105,7 +107,9 @@ $("#signUpBtnRecp").click(function (e) {
                     }
 
                 });
-                // console.log(validatedRegNumber);
+                console.log('inside the promise');
+
+                console.log('registration number is validated : ', validatedRegNumber);
 
 
                 //if the number is found in the database then run this code
@@ -154,6 +158,8 @@ $("#signUpBtnRecp").click(function (e) {
                     }
                 } else {
                     alert("Invalid Registration Number")
+                    $('#recipientForm').css("display", "block")
+                    $('#loadingRecipient').css("display", "none")
                 }
 
 
@@ -165,6 +171,8 @@ $("#signUpBtnRecp").click(function (e) {
 
         } else {
             alert("Please check your password")
+            $('#recipientForm').css("display", "block")
+            $('#loadingRecipient').css("display", "none")
         }
     }
 
@@ -243,25 +251,19 @@ $("#donorSignUpBtn").click(function (e) {
                     address: address,
                     area: area,
                     district: district
-                    // donatedTo: [
-                    //     {
-                    //         address: "Sample Address",
-                    //         item: {
-                    //             gloves: 0,
-                    //             gowns: 0,
-                    //             masks: 0,
-                    //             ventilators: 0
-                    //         },
-                    //         name: "Hospital Name"
-                    //     }
-                    // ],
+
                 }
                 createAccount(email, password, accountType, dataOfUser)
             }
         } else {
             alert("Please check your password")
+            $('#donorForm').css("display", "block")
         }
+    } else {
+        $('#donorForm').css("display", "block")
+        $('#loadingDonor').css("display", "none")
     }
+
 });
 
 
@@ -325,7 +327,9 @@ function createAccount(email, password, accountType, dataOfUser) {
                 recipient_db_path.push(dataOfUser)
                 let listData = {
                     name: dataOfUser.name,
-                    email: dataOfUser.email
+                    email: dataOfUser.email,
+                    nidNumber: dataOfUser.nidNumber,
+                    regNo: dataOfUser.regNo
                 }
                 recipientList.push(listData)
 

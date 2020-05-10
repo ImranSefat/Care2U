@@ -74,165 +74,159 @@
 
 
     <!-- hospital finder -->
-
+    <div class="container " id="loading" style="display: block;">
+        <lottie-player src="https://assets6.lottiefiles.com/datafiles/ORpUnaV6z0mJ17E/data.json"
+            background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay>
+        </lottie-player>
+    </div>
 
 
 
     <!-- banner -->
-    <div id="intro" class="bg-dark">
-        <div class="display-3
-            text-center text-white pt-5">Care2U</div> <br>
-        <div class="h2 text-center text-white pb-5">
-            OUR BRAVE FRONT LINERS REQUEST YOUR ASSISTANCE
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 pt-3">
-                    <!-- <label for="district" class="text-light">Enter district name</label> -->
-                    <input class="form-control" name="district" type="text" value="Dhaka" readonly>
-
-                </div>
-                <div class="col-md-3 pt-3">
-                    <div class="form-group col-md-6 ">
-                        <select class="custom-select" id="districtHospital" style="width:auto;">
-                            <option value="0">Choose District</option>
-                            <option value="1">Dhaka </option>
-                            <option value="2">Gazipur </option>
-                            <option value="3">Kishoreganj </option>
-                            <option value="4">Manikganj </option>
-                            <option value="5">Munshiganj </option>
-                            <option value="6">Narayanganj </option>
-                            <option value="7">Narshingdi </option>
-                            <option value="8">Tangail </option>
-                            <option value="9">Faridpur </option>
-                            <option value="10">Tangail </option>
-                            <option value="11">Faridpur </option>
-                            <option value="12">Gopalganj </option>
-                            <option value="13">Madaripur </option>
-                        </select>
-                    </div>
-
-                </div>
-                <div class="col-md-3 mt-3">
-                    <!-- <label for="district" class="text-light">Enter district name</label> -->
-
-                    <input class="form-control" name="area" type="text" placeholder="Area" id="findHospArea">
-
-                </div>
-                <div class="col-md-3 pt-3 text-center ">
-
-                    <button class="btn btn-danger" type="button" id="findHosp" style="display: none;">Find
-                        Hospitals</button>
-
-
-
-                </div>
+    <div id="mainContent">
+        <div id="intro" class="bg-dark">
+            <div class="display-3
+                text-center text-white pt-5">Care2U</div> <br>
+            <div class="h2 text-center text-white pb-5">
+                OUR BRAVE FRONT LINERS REQUEST YOUR ASSISTANCE
             </div>
-        </div>
-
-        <div class="bg-dark">
-            <div class="container table-responsive">
-                <table class="table table-striped table-dark table-hover mt-4">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col" class="text-center">Hospital Name</th>
-                            <th scope="col" class="text-center">Address</th>
-                            <th scope="col" class="text-center">Contact Info</th>
-                            <th scope="col" class="text-center">Area</th>
-                            <th scope="col" class="text-center">District</th>
-                            <th scope="col" class="text-center">Gloves</th>
-                            <th scope="col" class="text-center">Isolation Gowns</th>
-                            <th scope="col" class="text-center">Masks</th>
-                            <th scope="col" class="text-center">Ventilators</th>
-
-                            <th scope="col" class="text-center">Donate</th>
-
-                        </tr>
-                    </thead>
-                    <tbody id="listing_starts">
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-
-        <!-- User will see the contact info  -->
-        <div class="bg-dark" id="infoDonate">
-            <div class="container pt-3 pb-5" id="hospital_info">
-                <div class="display-3 text-light text-center">Contact Info</div>
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-4 text-center">
-                        <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_eZc0Fu.json"
-                            background="transparent" speed="1" loop autoplay>
-                        </lottie-player>
+                    <div class="col-md-3 pt-3">
+                        <!-- <label for="district" class="text-light">Enter district name</label> -->
+                        <input class="form-control" name="district" type="text" value="Dhaka" readonly>
+
                     </div>
-                    <div class="col-md-8">
-                        <div class="h3 text-center text-light pt-4">Confirm Your Donation</div>
-
-                        <div class="container bg-light rounded p-4">
-                            <div class="h4  mt-3 text-center" id="hospitalName">Hospital Name : <br> </div>
-                            <div class="h5  mt-3 text-center" id="hospitalAddress">Address : <br>
-                            </div>
-                            <div class="h5  mt-3 text-center" id="hospitalContactInfo">Contact Info : </div>
+                    <div class="col-md-3 pt-3">
+                        <div class="form-group col-md-6 ">
+                            <select class="custom-select" id="districtHospital" style="width:auto;">
+                                <option value="0">Choose District</option>
+                                <option value="1">Dhaka </option>
+                                <option value="2">Gazipur </option>
+                                <option value="3">Kishoreganj </option>
+                                <option value="4">Manikganj </option>
+                                <option value="5">Munshiganj </option>
+                                <option value="6">Narayanganj </option>
+                                <option value="7">Narshingdi </option>
+                                <option value="8">Tangail </option>
+                                <option value="9">Faridpur </option>
+                                <option value="10">Tangail </option>
+                                <option value="11">Faridpur </option>
+                                <option value="12">Gopalganj </option>
+                                <option value="13">Madaripur </option>
+                            </select>
                         </div>
 
+                    </div>
+                    <div class="col-md-3 mt-3">
+                        <!-- <label for="district" class="text-light">Enter district name</label> -->
 
-                        <div class=" h4 text-light text-center mt-5">Enter the number of items that you want to donate
-                        </div>
+                        <input class="form-control" name="area" type="text" placeholder="Area" id="findHospArea">
 
-                        <div class="row mt-4">
-                            <div class="col-6">
-                                <input type="number" placeholder="Gloves" class="form-control" id="inputGloves" />
-                            </div>
-                            <div class="col-6">
-                                <input type=" number" placeholder="Isolation Gowns" class="form-control"
-                                    id="inputGowns" />
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-6">
-                                <input type=" number" placeholder="Masks" class="form-control" id="inputMasks" />
-                            </div>
-                            <div class="col-6">
-                                <input type=" number" placeholder="Ventilators" class="form-control"
-                                    id="inputVentilators" />
-                            </div>
-                        </div>
-                        <div class="h4 text-light text-center mt-4">You are just one click away from saving a lot of
-                            lives.
-                            Please call the hospital to arrange transportation after confirming your donation.</div>
-                        <div class="text-center mt-3">
-                            <div class="btn btn-success" id="donateNowBtn">Donate Now</div>
-                        </div>
+                    </div>
+                    <div class="col-md-3 pt-3 text-center ">
 
+                        <button class="btn btn-danger" type="button" id="findHosp" style="display: none;">Find
+                            Hospitals</button>
 
 
 
                     </div>
-
                 </div>
             </div>
-        </div>
 
-        <div class="bg-primary py-3" id="footer">
+            <div class="bg-dark">
+                <div class="container table-responsive">
+                    <table class="table table-striped table-dark table-hover mt-4">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="text-center">Hospital Name</th>
+                                <th scope="col" class="text-center">Address</th>
+                                <th scope="col" class="text-center">Contact Info</th>
+                                <th scope="col" class="text-center">Area</th>
+                                <th scope="col" class="text-center">District</th>
+                                <th scope="col" class="text-center">Gloves</th>
+                                <th scope="col" class="text-center">Isolation Gowns</th>
+                                <th scope="col" class="text-center">Masks</th>
+                                <th scope="col" class="text-center">Ventilators</th>
 
-            <!--Section: Content-->
-            <section class=" px-5 px-md-5 py-1 text-center text-light bg-primary z-depth-1 ">
+                                <th scope="col" class="text-center">Donate</th>
 
-                <h3 class="">Made with <i class="fas fa-heart red-text mx-1"></i> by Eleven Squared Team</h3>
-                <!-- Copyright -->
-                <div class="footer-copyright text-center text-warning ">©2020 Copyright:
-                    Eleven Squared Team
+                            </tr>
+                        </thead>
+                        <tbody id="listing_starts">
+
+                        </tbody>
+                    </table>
                 </div>
-                <!-- Copyright -->
-            </section>
-            <!--Section: Content-->
+            </div>
+
+
+            <!-- User will see the contact info  -->
+            <div class="bg-dark" id="infoDonate">
+                <div class="container pt-3 pb-5" id="hospital_info">
+                    <div class="display-3 text-light text-center">Contact Info</div>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_eZc0Fu.json"
+                                background="transparent" speed="1" loop autoplay>
+                            </lottie-player>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="h3 text-center text-light pt-4">Confirm Your Donation</div>
+
+                            <div class="container bg-light rounded p-4">
+                                <div class="h4  mt-3 text-center" id="hospitalName">Hospital Name : <br> </div>
+                                <div class="h5  mt-3 text-center" id="hospitalAddress">Address : <br>
+                                </div>
+                                <div class="h5  mt-3 text-center" id="hospitalContactInfo">Contact Info : </div>
+                            </div>
+
+
+                            <div class=" h4 text-light text-center mt-5">Enter the number of items that you want to
+                                donate
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-6">
+                                    <input type="number" placeholder="Gloves" class="form-control" id="inputGloves" />
+                                </div>
+                                <div class="col-6">
+                                    <input type=" number" placeholder="Isolation Gowns" class="form-control"
+                                        id="inputGowns" />
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <input type=" number" placeholder="Masks" class="form-control" id="inputMasks" />
+                                </div>
+                                <div class="col-6">
+                                    <input type=" number" placeholder="Ventilators" class="form-control"
+                                        id="inputVentilators" />
+                                </div>
+                            </div>
+                            <div class="h4 text-light text-center mt-4">You are just one click away from saving a lot of
+                                lives.
+                                Please call the hospital to arrange transportation after confirming your donation.</div>
+                            <div class="text-center mt-3">
+                                <div class="btn btn-success" id="donateNowBtn">Donate Now</div>
+                            </div>
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
 
         </div>
-
     </div>
+
+
+
 
 
     <!-- banner -->
@@ -258,7 +252,7 @@
         crossorigin="anonymous"></script> -->
     <script src="./js/bootstrap/bootstrap.min.js"></script>
 
-    <!-- lotti animation  -->
+
 
     <!-- firebase -->
 

@@ -2,7 +2,14 @@ $("#status").css("display", "none");
 $("#loginBtn").css("display", "none");
 $("#signUpBtn").css("display", "none");
 $("#signOutBtn").css("display", "none");
+
 $('#infoDonate').css("display", "none");
+
+$('#loading').css("display", "block")
+$('#mainContent').css("display", "none")
+
+
+
 //initializing database
 let database = firebase.database()
 let rootRef = database.ref('users/recipient')
@@ -292,11 +299,9 @@ rootRef.on('value', snapshot => {
 
 
 
-            $('html,body').animate({
-                scrollTop: $("#footer").offset().top
-            },
-                'slow');
-
+            // $(window).load(function () {
+            //     $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+            // });
 
 
             $('#hospitalName').text(
@@ -316,12 +321,11 @@ rootRef.on('value', snapshot => {
 
     })
 
-
+    $('#loading').css("display", "none")
+    $('#mainContent').css("display", "block")
 
 })
 $('#donateNowBtn').click(function () {
-
-
     let gloves = $('#inputGloves').val()
     let gowns = $('#inputGowns').val()
     let masks = $('#inputMasks').val()
@@ -402,9 +406,11 @@ function gettingDonorData() {
 
             })
         })
+
         if (!userIsDonor) {
-            alert("You have to be a Donor to donate!")
-            console.log(!userIsDonor);
+            // $("#status").css("display", "block");
+        } else {
+            $("#status").css("display", "block");
         }
         resolve("Data updated")
     })
@@ -466,10 +472,10 @@ function checkingLoggedIn() {
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // console.log(user.email, "is signed in.");
-        $("#status").css("display", "block");
+        // $("#status").css("display", "block");
         $("#signOutBtn").css("display", "block");
         //if there's an user logged in then collect the data in the donorInfo object
-        //gettingDonorData()
+        gettingDonorData()
 
     } else {
         console.log("None Found.");
