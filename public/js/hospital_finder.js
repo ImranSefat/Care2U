@@ -379,6 +379,7 @@ function gettingDonorData() {
     userIsDonor = false
     let donorUser = firebase.auth().currentUser
     let donorEmail = donorUser.email
+    console.log(donorEmail);
     let donorInfoPath = database.ref('users/donor')
     return new Promise((resolve, rejected) => {
         donorInfoPath.once('value', snapshot => {
@@ -403,6 +404,7 @@ function gettingDonorData() {
         })
         if (!userIsDonor) {
             alert("You have to be a Donor to donate!")
+            console.log(!userIsDonor);
         }
         resolve("Data updated")
     })
@@ -467,7 +469,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         $("#status").css("display", "block");
         $("#signOutBtn").css("display", "block");
         //if there's an user logged in then collect the data in the donorInfo object
-        gettingDonorData()
+        //gettingDonorData()
 
     } else {
         console.log("None Found.");
