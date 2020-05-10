@@ -188,7 +188,7 @@ rootRef.on('value', snapshot => {
     let dTransactionId = []
 
     allDonations.forEach(element => {
-        // console.log(element);
+
         let d = Object.values(element)
 
         let transactionId = Object.keys(element)

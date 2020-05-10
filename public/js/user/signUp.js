@@ -125,18 +125,18 @@ $("#signUpBtnRecp").click(function (e) {
                             address: address,
                             area: area,
                             district: district,
-                            donorList: [
-                                {
-                                    item: {
-                                        gloves: 0,
-                                        gowns: 0,
-                                        masks: 0,
-                                        ventilators: 0
-                                    },
-                                    name: "who donated"
-                                }
-                            ]
-                            ,
+                            // donorList: [
+                            //     {
+                            //         item: {
+                            //             gloves: 0,
+                            //             gowns: 0,
+                            //             masks: 0,
+                            //             ventilators: 0
+                            //         },
+                            //        donorList name: "who donated"
+                            //     }
+                            // ]
+                            // ,
                             itemRequested: {
                                 gloves: 0,
                                 gowns: 0,
@@ -204,7 +204,7 @@ $("#donorSignUpBtn").click(function (e) {
 
     // showing the loading animation 
     $('#donorForm').css("display", "none")
-    $('#loading').css("display", "block")
+    $('#loadingDonor').css("display", "block")
 
 
     // email address validation 
@@ -258,11 +258,13 @@ $("#donorSignUpBtn").click(function (e) {
         } else {
             alert("Please check your password")
             $('#donorForm').css("display", "block")
+            $('#loadingDonor').css("display", "none")
         }
     } else {
         $('#donorForm').css("display", "block")
         $('#loadingDonor').css("display", "none")
     }
+
 
 });
 
@@ -336,6 +338,8 @@ function createAccount(email, password, accountType, dataOfUser) {
                 sendEmailVerification()
             }
         }
+        $('#donorForm').css("display", "none")
+        $('#loadingDonor').css("display", "block")
         firebase.auth().signOut();
         // location.reload()
 
