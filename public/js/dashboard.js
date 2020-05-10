@@ -274,9 +274,7 @@ rootRef.on('value', snapshot => {
             updateGowns(confirmedGowns)
             updateMasks(confirmedMasks)
             updateVentilators(confirmedVentilators)
-            // update.once('value', snapshot => {
-            //     // console.log(snapshot.val());
-            // })
+
             let updateConfirmation = {
                 confirmed: true
             }
