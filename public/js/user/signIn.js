@@ -36,7 +36,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         let verified = firebase.auth().currentUser.emailVerified
         //console.log(verified);
         if (verified) {
-            console.log(user.email);
+
             window.location.replace('./index.html')
         } else {
             alert("Verify Your Email Address to go to your dashboard")
