@@ -27,7 +27,9 @@ $("#signUpBtnRecp").click(function (e) {
     // email address validation 
     let valid = validateEmail(email)
 
-
+    // showing the loading animation 
+    $('#recipientForm').css("display", "none")
+    $('#loadingRecipient').css("display", "block")
 
 
 
@@ -192,6 +194,10 @@ $("#donorSignUpBtn").click(function (e) {
     let district = $("#donorDistrict option:selected").text();
 
 
+    // showing the loading animation 
+    $('#donorForm').css("display", "none")
+    $('#loading').css("display", "block")
+
 
     // email address validation 
     let valid = validateEmail(email)
@@ -212,7 +218,7 @@ $("#donorSignUpBtn").click(function (e) {
                 alert("Phone Number Cannot be less than 11 digits")
                 invalid = true
             }
-            if (nidNumber.length === 10 || nidNumber.length === 13) {
+            if (nidNumber.length !== 10 && nidNumber.length !== 13) {
                 alert("Invalid NID Number")
                 invalid = true
             }
@@ -236,19 +242,19 @@ $("#donorSignUpBtn").click(function (e) {
                     nidNumber: nidNumber,
                     address: address,
                     area: area,
-                    district: district,
-                    donatedTo: [
-                        {
-                            address: "Sample Address",
-                            item: {
-                                gloves: 0,
-                                gowns: 0,
-                                masks: 0,
-                                ventilators: 0
-                            },
-                            name: "Hospital Name"
-                        }
-                    ],
+                    district: district
+                    // donatedTo: [
+                    //     {
+                    //         address: "Sample Address",
+                    //         item: {
+                    //             gloves: 0,
+                    //             gowns: 0,
+                    //             masks: 0,
+                    //             ventilators: 0
+                    //         },
+                    //         name: "Hospital Name"
+                    //     }
+                    // ],
                 }
                 createAccount(email, password, accountType, dataOfUser)
             }
@@ -286,52 +292,49 @@ function createAccount(email, password, accountType, dataOfUser) {
         if (errorCode == 'auth/weak-password') {
             alert('The password is too weak.');
         } else {
+            console.log(errorMessage, "error message ");
             alert(errorMessage);
         }
         console.log(error);
         // [END_EXCLUDE]
 
+        console.log('account created');
 
 
-
-    }).then(function (error) {
-
-        if (error == null) {
+    }).then(function (res) {
+        // console.log(error);
+        if (accountType == 'donor') {
             // console.log(accountType);
-            if (accountType == 'donor') {
-                // console.log(accountType);
-                let donor_db_path = database.ref('users/donor')
-                let donorList = database.ref('userList/donorList')
+            let donor_db_path = database.ref('users/donor')
+            let donorList = database.ref('userList/donorList')
 
-                donor_db_path.push(dataOfUser)
+            donor_db_path.push(dataOfUser)
+            let listData = {
+                name: dataOfUser.name,
+                email: dataOfUser.email
+            }
+            donorList.push(listData)
+
+            sendEmailVerification()
+        } else {
+            if (accountType == 'recipient') {
+                // console.log(accountType);
+                let recipient_db_path = database.ref('users/recipient')
+                let recipientList = database.ref('userList/recipientList')
+
+                recipient_db_path.push(dataOfUser)
                 let listData = {
                     name: dataOfUser.name,
                     email: dataOfUser.email
                 }
-                donorList.push(listData)
+                recipientList.push(listData)
 
                 sendEmailVerification()
-            } else {
-                if (accountType == 'recipient') {
-                    // console.log(accountType);
-                    let recipient_db_path = database.ref('users/recipient')
-                    let recipientList = database.ref('userList/recipientList')
-
-                    recipient_db_path.push(dataOfUser)
-                    let listData = {
-                        name: dataOfUser.name,
-                        email: dataOfUser.email
-                    }
-                    recipientList.push(listData)
-
-                    sendEmailVerification()
-                }
             }
-            firebase.auth().signOut();
-            location.reload
-        } else {
-            alert(error);
         }
+        firebase.auth().signOut();
+        // location.reload()
+
 
 
 
