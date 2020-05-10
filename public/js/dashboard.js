@@ -8,15 +8,52 @@ let userEmail = ''
 //checking if the user's email is verified or not 
 let database = firebase.database()
 let verified = false
+// showing the loading animation 
+$('#loading').css("display", "block")
+$('#mainContent').css("display", "none")
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         $("#signOutBtn").css("display", "block");
         verified = firebase.auth().currentUser.emailVerified
 
+        $('#loading').css("display", "block")
 
         if (verified) {
             // console.log(user.email, " is logged In");
             userEmail = user.email
+
+            //checking if the visitor is a hospital staff or not 
+            let allRecipientList = database.ref('userList/recipientList')
+            let allHospitalEmails = []
+
+            allRecipientList.on('value', snapshot => {
+                allHospitalEmails = []
+                let data = snapshot.val()
+                let keys = Object.keys(snapshot.val())
+
+                keys.forEach(element => {
+                    allHospitalEmails.push(data[element].email)
+                    // console.log(allHospitalEmails);
+                });
+                let user = firebase.auth().currentUser
+                let currentUserEmail = user.email
+                let userIsRecipient = allHospitalEmails.includes(currentUserEmail)
+                // console.log(userIsRecipient);
+                if (userIsRecipient) {
+                    $("#status").css("display", "block");
+                    $('#loading').css("display", "none")
+                    $('#mainContent').css("display", "block")
+                } else {
+
+                    alert('You have to be a Recipient to see this page!!')
+                    window.location.replace('./index.html')
+                }
+
+            })
+
+
+
         } else {
             alert("Verify Your Email Address to go to your dashboard")
             window.location.replace('./index.html')
@@ -26,6 +63,24 @@ firebase.auth().onAuthStateChanged(function (user) {
         window.location.replace('./index.html')
     }
 });
+
+
+
+//checking if the visitor is a hospital or not 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -55,6 +110,12 @@ let requiredVentilators = 0
 //all the donations 
 let allDonations = []
 
+
+let confirmedGloves = 0
+let confirmedGowns = 0
+let confirmedMasks = 0
+let confirmedVentilators = 0
+
 rootRef.on('value', snapshot => {
     allDonations = []
     let hospitals = snapshot.val()
@@ -73,6 +134,17 @@ rootRef.on('value', snapshot => {
             requiredGowns = (hospitals[element].itemRequested.gowns)
             requiredMasks = (hospitals[element].itemRequested.masks)
             requiredVentilators = (hospitals[element].itemRequested.ventilators)
+
+            //console.log(requiredGloves, requiredGowns, requiredMasks, requiredVentilators);
+            if ((requiredGloves <= 0) && (requiredGowns <= 0) && (requiredMasks <= 0) && (requiredVentilators <= 0)) {
+                let removingHospital = {
+                    requested: false
+                }
+
+                let update = database.ref('/users/recipient' + '/' + userPathUID + '/itemRequested')
+                update.update(removingHospital)
+
+            }
 
             availableGloves = (hospitals[element].itemsAvailable.gloves)
             availableGowns = (hospitals[element].itemsAvailable.gowns)
@@ -187,18 +259,33 @@ rootRef.on('value', snapshot => {
         });
 
         data = values.split("table data")
-        // console.log(data);
+        confirmedGloves = data[4]
+        confirmedGowns = data[5]
+        confirmedMasks = data[6]
+        confirmedVentilators = data[7]
 
-        // console.log(data[8]);
+        let cStatus = data[9]
+        if (cStatus == 'Confirmed') {
+            alert('The donation is already confirmed')
+        } else {
+            let update = database.ref('/users/recipient' + '/' + userPathUID + '/donorList/' + data[8].toString())
 
-        // let confirmStatusPath = database.ref('/users/recipient' + userPathUID + '/' + data[8])
-        let update = database.ref('/users/recipient' + '/' + userPathUID + '/donorList/' + data[8].toString())
+            updateGloves(confirmedGloves)
+            updateGowns(confirmedGowns)
+            updateMasks(confirmedMasks)
+            updateVentilators(confirmedVentilators)
+            // update.once('value', snapshot => {
+            //     // console.log(snapshot.val());
+            // })
+            let updateConfirmation = {
+                confirmed: true
+            }
+            update.update(updateConfirmation)
 
-        let updateConfirmation = {
-            confirmed: true
+            alert('Confirmed!')
         }
-        update.update(updateConfirmation)
-        alert('Confirmed!')
+
+
 
         //updating the inventory
     })
@@ -216,58 +303,93 @@ rootRef.on('value', snapshot => {
 
 
 
+//update functions 
 
-
-
-
-//updating the value on the inventory 
-$('#updateBtnGloves').click('click', function (params) {
-    let updatedValue = $('#updateValueGloves').val()
-
-    if (updatedValue.length == 0) {
-        alert("Please enter the updated number first!")
-    } else {
-
+function updateGloves(updatedValue, button) {
+    if (button == 'update') {
+        //console.log('update button pressed');
         let updatePath = database.ref('users/recipient')
-
         updatePath.once('value', snapshot => {
             let hospitals = snapshot.val()
-
             let keys = Object.keys(hospitals)
-
             keys.forEach(element => {
                 // getting the inventory data items value
                 if (userEmail === hospitals[element].email) {
                     //matching the email to see the correct data of that specific user 
 
-                    console.log("email Matched");
+                    //console.log("email Matched");
+
                     database.ref('users/recipient/' + element + '/itemsAvailable').update(
                         {
                             gloves: updatedValue
                         }
                     )
                     $('#updateValueGloves').val('')
-                    alert("Updated")
 
 
 
                 }
             })
 
+        })
+    } else {
+        let updatePath = database.ref('users/recipient')
+        updatePath.once('value', snapshot => {
+            let hospitals = snapshot.val()
+            let keys = Object.keys(hospitals)
+            keys.forEach(element => {
+                // getting the inventory data items value
+                if (userEmail === hospitals[element].email) {
+                    //matching the email to see the correct data of that specific user 
+
+
+
+                    let updatedValueOfInventory = parseInt(updatedValue) + parseInt(availableGloves)
+                    database.ref('users/recipient/' + element + '/itemsAvailable').update(
+                        {
+                            gloves: updatedValueOfInventory
+                        }
+                    )
+                    let updatedValueOfRequests = parseInt(requiredGloves) - parseInt(updatedValue)
+
+                    database.ref('users/recipient/' + element + '/itemRequested').update(
+                        {
+                            gloves: updatedValueOfRequests
+                        }
+                    )
+
+
+
+
+
+                }
+            })
 
         })
+    }
+    alert("Gloves quantity  updated")
+
+
+}
+
+
+
+//updating the value on the inventory 
+$('#updateBtnGloves').click('click', function (params) {
+    let updatedValue = $('#updateValueGloves').val()
+    if (updatedValue.length == 0) {
+        alert("Please enter the updated number first!")
+    } else {
+        updateGloves(updatedValue, 'update')
     }
 
 })
 
 
-$('#updateBtnGowns').click('click', function (params) {
-    let updatedValue = $('#updateValueGowns').val()
 
-    if (updatedValue.length == 0) {
-        alert("Please enter the updated number first!")
-    } else {
 
+function updateGowns(updatedValue, button) {
+    if (button == 'update') {
         let updatePath = database.ref('users/recipient')
 
         updatePath.once('value', snapshot => {
@@ -286,7 +408,40 @@ $('#updateBtnGowns').click('click', function (params) {
                         }
                     )
                     $('#updateValueGowns').val('')
-                    alert("Updated")
+
+
+
+                }
+            })
+        })
+    } else {
+        let updatePath = database.ref('users/recipient')
+
+        updatePath.once('value', snapshot => {
+            let hospitals = snapshot.val()
+
+            let keys = Object.keys(hospitals)
+
+            keys.forEach(element => {
+                // getting the inventory data items value
+                if (userEmail === hospitals[element].email) {
+
+
+
+                    let updatedValueOfInventory = parseInt(updatedValue) + parseInt(availableGowns)
+                    database.ref('users/recipient/' + element + '/itemsAvailable').update(
+                        {
+                            gowns: updatedValueOfInventory
+                        }
+                    )
+                    let updatedValueOfRequests = parseInt(requiredGowns) - parseInt(updatedValue)
+                    database.ref('users/recipient/' + element + '/itemRequested').update(
+                        {
+                            gowns: updatedValueOfRequests
+                        }
+                    )
+
+
 
 
 
@@ -294,10 +449,87 @@ $('#updateBtnGowns').click('click', function (params) {
             })
         })
     }
+    alert("Gowns quantity  updated")
+
+}
+
+
+
+
+
+$('#updateBtnGowns').click('click', function (params) {
+    let updatedValue = $('#updateValueGowns').val()
+
+    if (updatedValue.length == 0) {
+        alert("Please enter the updated number first!")
+    } else {
+        updateGowns(updatedValue, 'update')
+    }
+
+
 
 })
 
+function updateMasks(updatedValue, button) {
+    if (button == 'update') {
+        let updatePath = database.ref('users/recipient')
 
+        updatePath.once('value', snapshot => {
+            let hospitals = snapshot.val()
+
+            let keys = Object.keys(hospitals)
+
+            keys.forEach(element => {
+                // getting the inventory data items value
+                if (userEmail === hospitals[element].email) {
+
+                    database.ref('users/recipient/' + element + '/itemsAvailable').update(
+                        {
+                            masks: updatedValue
+                        }
+                    )
+                    $('#updateValueMasks').val('')
+
+
+                }
+            })
+        })
+    } else {
+        let updatePath = database.ref('users/recipient')
+
+        updatePath.once('value', snapshot => {
+            let hospitals = snapshot.val()
+
+            let keys = Object.keys(hospitals)
+
+            keys.forEach(element => {
+                // getting the inventory data items value
+                if (userEmail === hospitals[element].email) {
+
+
+
+                    let updatedValueOfInventory = parseInt(updatedValue) + parseInt(availableMasks)
+                    database.ref('users/recipient/' + element + '/itemsAvailable').update(
+                        {
+                            masks: updatedValueOfInventory
+                        }
+                    )
+                    let updatedValueOfRequests = parseInt(requiredMasks) - parseInt(updatedValue)
+                    database.ref('users/recipient/' + element + '/itemRequested').update(
+                        {
+                            masks: updatedValueOfRequests
+                        }
+                    )
+
+
+
+                }
+            })
+        })
+    }
+    alert("Masks quantity  updated")
+
+}
 
 $('#updateBtnMasks').click('click', function (params) {
     let updatedValue = $('#updateValueMasks').val()
@@ -306,7 +538,16 @@ $('#updateBtnMasks').click('click', function (params) {
     if (updatedValue.length == 0) {
         alert("Please enter the updated number first!")
     } else {
+        updateMasks(updatedValue, 'update')
+    }
 
+
+})
+
+
+
+function updateVentilators(updatedValue, button) {
+    if (button == 'update') {
         let updatePath = database.ref('users/recipient')
 
         updatePath.once('value', snapshot => {
@@ -317,23 +558,54 @@ $('#updateBtnMasks').click('click', function (params) {
             keys.forEach(element => {
                 // getting the inventory data items value
                 if (userEmail === hospitals[element].email) {
-                    // console.log("email Matched");
+
                     database.ref('users/recipient/' + element + '/itemsAvailable').update(
                         {
-                            masks: updatedValue
+                            ventilators: updatedValue
                         }
                     )
-                    $('#updateValueMasks').val('')
-                    alert("Updated")
+                    $('#updateValueVentilators').val('')
+
+                }
+            })
+        })
+    } else {
+        let updatePath = database.ref('users/recipient')
+
+        updatePath.once('value', snapshot => {
+            let hospitals = snapshot.val()
+
+            let keys = Object.keys(hospitals)
+
+            keys.forEach(element => {
+                // getting the inventory data items value
+                if (userEmail === hospitals[element].email) {
+
+
+
+
+                    let updatedValueOfInventory = parseInt(updatedValue) + parseInt(availableVentilators)
+                    database.ref('users/recipient/' + element + '/itemsAvailable').update(
+                        {
+                            ventilators: updatedValueOfInventory
+                        }
+                    )
+                    let updatedValueOfRequests = parseInt(requiredVentilators) - parseInt(updatedValue)
+                    database.ref('users/recipient/' + element + '/itemRequested').update(
+                        {
+                            ventilators: updatedValueOfRequests
+                        }
+                    )
+
+
 
                 }
             })
         })
     }
+    alert('Ventilator quantity  updated')
 
-})
-
-
+}
 
 $('#updateBtnVentilators').click('click', function (params) {
     let updatedValue = $('#updateValueVentilators').val()
@@ -341,29 +613,7 @@ $('#updateBtnVentilators').click('click', function (params) {
     if (updatedValue.length == 0) {
         alert("Please enter the updated number first!")
     } else {
-
-        let updatePath = database.ref('users/recipient')
-
-        updatePath.once('value', snapshot => {
-            let hospitals = snapshot.val()
-
-            let keys = Object.keys(hospitals)
-
-            keys.forEach(element => {
-                // getting the inventory data items value
-                if (userEmail === hospitals[element].email) {
-                    // console.log("email Matched");
-                    database.ref('users/recipient/' + element + '/itemsAvailable').update(
-                        {
-                            ventilators: updatedValue
-                        }
-                    )
-                    $('#updateValueVentilators').val('')
-                    alert("Updated")
-
-                }
-            })
-        })
+        updateVentilators(updatedValue, 'update')
     }
 })
 
