@@ -72,6 +72,8 @@
                     <a href="#donor">Donor</a></h3>
 
 
+
+
             </div>
 
         </div>
@@ -83,8 +85,12 @@
         <div class="container" id="recipient">
 
             <div class="display-3 text-light text-center pb-5 pt-5">Sign Up as a Recipient</div>
-
-            <div class="row">
+            <div id="loadingRecipient" style="display: none;">
+                <lottie-player src="https://assets6.lottiefiles.com/datafiles/ORpUnaV6z0mJ17E/data.json"
+                    background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay>
+                </lottie-player>
+            </div>
+            <div class="row" id="recipientForm">
 
                 <div class="col-md-6">
                     <div class="pt-5 pb-5" id="lotti">
@@ -193,7 +199,12 @@
         <div class="container" id="donor">
 
             <div class="display-3 text-light text-center pb-5 pt-5">Sign Up as a Donor</div>
-            <div class="row">
+            <div id="loading" style="display: none;">
+                <lottie-player src="https://assets6.lottiefiles.com/datafiles/ORpUnaV6z0mJ17E/data.json"
+                    background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay>
+                </lottie-player>
+            </div>
+            <div class="row" id="donorForm">
                 <div class="col-md-6">
                     <form>
                         <div class="form-row">
