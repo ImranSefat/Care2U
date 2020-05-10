@@ -38,6 +38,8 @@ $("#signOutBtn").click(function (e) {
 
 
 let rootRef = database.ref('users/recipient')
+
+let userPathUID = ''
 //items in the available section
 let availableGloves = 0
 let availableGowns = 0
@@ -62,6 +64,9 @@ rootRef.on('value', snapshot => {
     keys.forEach(element => {
         // getting the inventory data items value
         if (userEmail === hospitals[element].email) {
+            //saving the user path
+            userPathUID = element
+
             //matching the email to see the correct data of that specific user 
             // console.log("Email Matched");
             requiredGloves = (hospitals[element].itemRequested.gloves)
@@ -108,11 +113,19 @@ rootRef.on('value', snapshot => {
     let dMasks = []
     let dVentilators = []
     let dConfirmation = []
+    let dTransactionId = []
 
     allDonations.forEach(element => {
         // console.log(element);
         let d = Object.values(element)
+
+        let transactionId = Object.keys(element)
+        transactionId.forEach(id => {
+            dTransactionId.push(id)
+        });
+
         d.forEach(elem => {
+
             donorName.push(elem.donorInfo.name)
             donorAddress.push(elem.donorInfo.address)
             donorContactInfo.push(elem.donorInfo.phoneNumber)
@@ -158,12 +171,51 @@ rootRef.on('value', snapshot => {
     // console.log(donorName, donorAddress, donorContactInfo, dGloves, dGowns, dMasks, dVentilators);
 
     for (let index = 0; index < donorName.length; index++) {
-        let _newRow = '<tr><td class="text-center">' + donorName[index] + '</td><td class="text-center">' + donorAddress[index] + '</td></td><td class="text-center">' + donorContactInfo[index] + '</td><td class="text-center">' + dGloves[index] + '</td><td class="text-center">' + dGowns[index] + '</td><td class="text-center">' + dMasks[index] + '</td><td class="text-center">' + dVentilators[index] + '</td><td class="text-center">' + dConfirmation[index] + '</td></td><td class="text-center"><button class="btn btn-primary" id="orderBtn" >Confirm</button> </td></tr>'
+        let _newRow = '<tr><td class="text-center">' + donorName[index] + '</td><td class="text-center">' + donorAddress[index] + '</td><td class="text-center">' + donorContactInfo[index] + '</td><td class="text-center">' + dGloves[index] + '</td><td class="text-center">' + dGowns[index] + '</td><td class="text-center">' + dMasks[index] + '</td><td class="text-center">' + dVentilators[index] + '</td><td class="text-center">' + dTransactionId[index] + '</td><td class="text-center">' + dConfirmation[index] + '</td></td><td class="text-center"><button class="btn btn-primary" id="confirmBtn" >Confirm</button> </td></tr>'
         $('#listing_starts').append(_newRow);
 
     }
+    // oder button ordering 
+    $('[id=confirmBtn]').click(function () {
+        //gettingDonorData()
+        var $row = jQuery(this).closest('tr');
+        var $columns = $row.find('td');
+
+        values = "";
+        jQuery.each($columns, function (i, item) {
+            values = values + 'table data' + item.innerHTML;
+        });
+
+        data = values.split("table data")
+        // console.log(data);
+
+        // console.log(data[8]);
+
+        // let confirmStatusPath = database.ref('/users/recipient' + userPathUID + '/' + data[8])
+        let update = database.ref('/users/recipient' + '/' + userPathUID + '/donorList/' + data[8].toString())
+
+        let updateConfirmation = {
+            confirmed: true
+        }
+        update.update(updateConfirmation)
+        alert('Confirmed!')
+
+        //updating the inventory
+    })
+
+    // showing the loading animation 
+    $('#loading').css("display", "none")
+    $('#mainContent').css("display", "block")
+
+
 
 })
+
+
+
+
+
+
 
 
 

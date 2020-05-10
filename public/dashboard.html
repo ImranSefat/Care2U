@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="./style/bootstrap/bootstrap.min.css">
 
   <link rel="stylesheet" href="./style/dashboard.css">
+  <!-- lottie-player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 </head>
 
@@ -63,17 +65,24 @@
   </nav>
   <!--header area end-->
 
+  <div class="container " id="loading" style="display: block;">
+    <lottie-player src="https://assets6.lottiefiles.com/datafiles/ORpUnaV6z0mJ17E/data.json" background="transparent"
+      speed="1" style="width: 100%; height: 100%;" loop autoplay>
+    </lottie-player>
+  </div>
 
-
-  <div class="head bg-dark">
+  <div class="head bg-dark" id="mainContent" style="display: none;">
     <!-- header -->
     <div class="container">
       <div class="display-4 pt-5 text-center text-light">Availability and Requirements of Personal Protection Equipment
         (PPE)</div>
     </div>
     <!-- header -->
+
+
     <!-- information requirements -->
     <div class="container">
+
 
       <div class="ml-5 mr-5 mt-5">
 
@@ -256,6 +265,7 @@
             <th scope="col" class="text-center">Isolation Gowns</th>
             <th scope="col" class="text-center">Masks</th>
             <th scope="col" class="text-center">Ventilators</th>
+            <th scope="col" class="text-center">Transaction Id</th>
             <th scope="col" class="text-center text-danger">Status</th>
             <th scope="col" class="text-center">Donate</th>
 
