@@ -29,6 +29,8 @@ let donorInfo = {}
 let findDistrict = ''
 let findArea = ''
 
+let userIsDonor = false
+
 $('#findHosp').click(function (e) {
     e.preventDefault();
 
@@ -368,18 +370,13 @@ $('#donateNowBtn').click(function () {
 
 })
 
-function successfullcallBack() {
-    console.log(donorInfo);
-}
-function rejected() {
-
-}
 
 
 
 
 
 function gettingDonorData() {
+    userIsDonor = false
     let donorUser = firebase.auth().currentUser
     let donorEmail = donorUser.email
     let donorInfoPath = database.ref('users/donor')
@@ -389,25 +386,35 @@ function gettingDonorData() {
             let keysOfDonorList = Object.keys(allDonor)
             keysOfDonorList.forEach(element => {
                 if (allDonor[element].email == donorEmail) {
-                    donorInfo = {
-                        name: allDonor[element].name,
-                        email: allDonor[element].email,
-                        address: allDonor[element].address,
-                        nidNumber: allDonor[element].nidNumber,
-                        phoneNumber: allDonor[element].phoneNumber
-                    }
+                    userIsDonor = true,
+                        donorInfo = {
+                            name: allDonor[element].name,
+                            email: allDonor[element].email,
+                            address: allDonor[element].address,
+                            nidNumber: allDonor[element].nidNumber,
+                            phoneNumber: allDonor[element].phoneNumber,
 
-                    //console.log(donorInfo.email);
+                        }
+
+
                 }
-                //console.log(donorInfo.email);
+
             })
         })
+        if (!userIsDonor) {
+            alert("You have to be a Donor to donate!")
+        }
         resolve("Data updated")
     })
 
 }
 
 function donating() {
+    if (!userIsDonor) {
+        alert("You have to be a Donor to donate!")
+        return
+    }
+
     let donatePath = database.ref('users/recipient')
     let name = data[1]
 
@@ -461,6 +468,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         $("#signOutBtn").css("display", "block");
         //if there's an user logged in then collect the data in the donorInfo object
         gettingDonorData()
+
     } else {
         console.log("None Found.");
 
