@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         //console.log(verified);
         if (verified) {
             console.log(user.email);
-            window.location.replace('./dashboard.html')
+            window.location.replace('./index.html')
         } else {
             alert("Verify Your Email Address to go to your dashboard")
             firebase.auth().signOut();
