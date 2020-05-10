@@ -72,9 +72,6 @@
                 <h3 class="display-4 text-light">Sign Up as <a href="#recipient" class="text-warning">Recipient</a> or a
                     <a href="#donor">Donor</a></h3>
 
-
-
-
             </div>
 
         </div>
@@ -85,7 +82,8 @@
     <div class="bg-dark">
         <div class="container" id="recipient">
 
-            <div class="display-3 text-light text-center pb-5 pt-5">Sign Up as a Recipient</div>
+            <div class="display-3 text-light text-center pb-5 pt-5" data-aos="fade-up">Sign Up as a Recipient</div>
+
             <div id="loadingRecipient" style="display: none;">
                 <lottie-player src="https://assets6.lottiefiles.com/datafiles/ORpUnaV6z0mJ17E/data.json"
                     background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay>
@@ -94,14 +92,14 @@
             <div class="row" id="recipientForm">
 
                 <div class="col-md-6">
-                    <div class="pt-5 pb-5" id="lotti">
+                    <div class="pt-5 pb-5" id="lotti" data-aos="fade-up">
 
                         <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_wdXBRc.json"
                             background="transparent" speed="1" style="width: 100%; height: 400px;" loop autoplay>
                         </lottie-player>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-up">
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -183,7 +181,7 @@
 
                         </div>
 
-                        <div class="text-center mt-4">
+                        <div class="text-center mt-4" data-aos="fade-up">
                             <button type="submit" class="btn btn-primary" id="signUpBtnRecp">Sign Me Up</button>
                         </div>
 
@@ -199,14 +197,14 @@
     <div class="bg-dark" style="padding-top: 100px; padding-bottom: 100px;">
         <div class="container" id="donor">
 
-            <div class="display-3 text-light text-center pb-5 pt-5">Sign Up as a Donor</div>
+            <div class="display-3 text-light text-center pb-5 pt-5" data-aos="fade-up">Sign Up as a Donor</div>
             <div id="loading" style="display: none;">
                 <lottie-player src="https://assets6.lottiefiles.com/datafiles/ORpUnaV6z0mJ17E/data.json"
                     background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay>
                 </lottie-player>
             </div>
             <div class="row" id="donorForm">
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-up">
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -282,13 +280,13 @@
                             </div>
 
                         </div>
-                        <div class="text-center mt-4">
+                        <div class="text-center mt-4" data-aos="fade-up">
                             <button type="submit" class="btn btn-success" id="donorSignUpBtn">Sign Me Up</button>
                         </div>
 
                     </form>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-up">
                     <div class="pt-5 pb-5" id="lotti">
 
                         <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_wv4mTG.json"
@@ -372,7 +370,10 @@
 
     <script src="./js/user/signUp.js"></script>
 
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script defer>
+        AOS.init();
+    </script>
 
 
     <!-- firebase -->
