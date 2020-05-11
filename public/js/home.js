@@ -34,7 +34,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             keys.forEach(element => {
                 allHospitalEmails.push(data[element].email)
-                // console.log(allHospitalEmails);
+
             });
             let user = firebase.auth().currentUser
             let currentUserEmail = user.email
