@@ -3,6 +3,13 @@
     "rules": "database.rules.json"
   },
   "hosting": {
+    "redirects": [
+      {
+        "source": "/dashboard",
+        "destination": "/",
+        "type": 301
+      }
+    ],
     "public": "public",
     "ignore": [
       "firebase.json",
