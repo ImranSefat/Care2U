@@ -5,7 +5,7 @@
       ".write": false
     },
     "userList": {
-      ".read": false,
+      ".read": true,
       ".write": "auth != null"
     },
     "users": {
