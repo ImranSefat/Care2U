@@ -44,6 +44,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                     $("#status").css("display", "block");
                     $('#loading').css("display", "none")
                     $('#mainContent').css("display", "block")
+
                 } else {
 
                     alert('You have to be a Recipient to see this page!!')
