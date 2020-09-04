@@ -1,3 +1,6 @@
+
+[Link to the site](https://care2u-6845d.web.app/)
+
 # INSPIRATION
 
 The very world we know and love is changing by the second due to the
@@ -25,6 +28,21 @@ of the particular area where they wish to donate. Using this system,
 people and organizations with extra supplies can find the right centers
 to donate to and assist the community from within the site. Upon
 receiving donation, the inventory of the hospital update accordingly.
+
+Such inventory may include plasma donation. The hospital records of
+recovered patients and their necessary contact and medical
+information are to be inputted. These can be recovered from the
+hospital database itself or they can provide. Of course the terms and
+permission of the patients are to be acknowledged as well as the
+hospitals too along with all the necessary confidentiality. Therefore in
+case of the need of plasma, hospitals can put up a request and donors
+may find themselves. Also because of the previous record of donors
+and recovered patients and of course being under their permission,
+hospitals may seek them directly through the combined database we
+would provide and personally request for help regarding their need
+which in most cases would include plasma.
+
+To ensure the users are up-to-date with recent updates,
 
 To ensure the users are up-to-date with recent updates, they can view
 the COVID-19 status of Bangladesh from Home page.
